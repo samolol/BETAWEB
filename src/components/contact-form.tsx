@@ -1,0 +1,174 @@
+"use client";
+
+import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+
+import { siteContent } from "@/content/site";
+import {
+  type ContactFormData,
+  type ContactFormResponse,
+  contactFormSchema,
+} from "@/lib/contact-schema";
+
+type SubmissionState =
+  | { type: "idle"; message: string }
+  | { type: "success"; message: string }
+  | { type: "error"; message: string };
+
+function FieldError({ message }: { message?: string }) {
+  if (!message) {
+    return null;
+  }
+
+  return <p className="mt-2 text-sm text-[#b42318]">{message}</p>;
+}
+
+export function ContactForm() {
+  const [submissionState, setSubmissionState] = useState<SubmissionState>({
+    type: "idle",
+    message: "",
+  });
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+      honeypot: "",
+    },
+  });
+
+  async function onSubmit(values: ContactFormData) {
+    setSubmissionState({ type: "idle", message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const result = (await response.json()) as ContactFormResponse;
+
+      if (!response.ok || !result.success) {
+        setSubmissionState({
+          type: "error",
+          message: result.message || "Odeslání se nepodařilo. Zkuste to prosím znovu.",
+        });
+        return;
+      }
+
+      reset();
+      setSubmissionState({
+        type: "success",
+        message: result.message,
+      });
+    } catch {
+      setSubmissionState({
+        type: "error",
+        message: "Odeslání se nepodařilo. Zkuste to prosím znovu.",
+      });
+    }
+  }
+
+  return (
+    <form
+      className="rounded-[2rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-card)] sm:p-8"
+      onSubmit={handleSubmit(onSubmit)}
+      noValidate
+    >
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label className="block text-sm font-semibold text-[var(--color-text)]" htmlFor="name">
+            Jméno
+          </label>
+          <input
+            id="name"
+            className="mt-2 w-full rounded-2xl border border-[var(--color-line)] bg-white px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus:border-[var(--color-accent)] focus:ring-4 focus:ring-[rgba(15,118,110,0.12)]"
+            placeholder={siteContent.contact.placeholders.name}
+            {...register("name")}
+          />
+          <FieldError message={errors.name?.message} />
+        </div>
+
+        <div>
+          <label className="block text-sm font-semibold text-[var(--color-text)]" htmlFor="email">
+            E-mail
+          </label>
+          <input
+            id="email"
+            type="email"
+            className="mt-2 w-full rounded-2xl border border-[var(--color-line)] bg-white px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus:border-[var(--color-accent)] focus:ring-4 focus:ring-[rgba(15,118,110,0.12)]"
+            placeholder={siteContent.contact.placeholders.email}
+            {...register("email")}
+          />
+          <FieldError message={errors.email?.message} />
+        </div>
+      </div>
+
+      <div className="mt-5">
+        <label className="block text-sm font-semibold text-[var(--color-text)]" htmlFor="phone">
+          Telefon
+        </label>
+        <input
+          id="phone"
+          className="mt-2 w-full rounded-2xl border border-[var(--color-line)] bg-white px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus:border-[var(--color-accent)] focus:ring-4 focus:ring-[rgba(15,118,110,0.12)]"
+          placeholder={siteContent.contact.placeholders.phone}
+          {...register("phone")}
+        />
+        <FieldError message={errors.phone?.message} />
+      </div>
+
+      <div className="mt-5">
+        <label className="block text-sm font-semibold text-[var(--color-text)]" htmlFor="message">
+          Zpráva
+        </label>
+        <textarea
+          id="message"
+          rows={6}
+          className="mt-2 w-full rounded-[1.5rem] border border-[var(--color-line)] bg-white px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus:border-[var(--color-accent)] focus:ring-4 focus:ring-[rgba(15,118,110,0.12)]"
+          placeholder={siteContent.contact.placeholders.message}
+          {...register("message")}
+        />
+        <FieldError message={errors.message?.message} />
+      </div>
+
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="company">Společnost</label>
+        <input id="company" tabIndex={-1} autoComplete="off" {...register("honeypot")} />
+      </div>
+
+      <button
+        type="submit"
+        className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_40px_rgba(15,118,110,0.24)] transition hover:-translate-y-0.5 hover:bg-[var(--color-accent-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)] disabled:cursor-not-allowed disabled:opacity-70"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? "Odesílám..." : siteContent.contact.cta}
+      </button>
+
+      <div aria-live="polite" className="mt-4 min-h-6 text-sm">
+        {submissionState.type === "success" ? (
+          <p className="rounded-2xl bg-[rgba(15,118,110,0.10)] px-4 py-3 text-[var(--color-accent-strong)]">
+            {submissionState.message}
+          </p>
+        ) : null}
+
+        {submissionState.type === "error" ? (
+          <p className="rounded-2xl bg-[rgba(180,35,24,0.08)] px-4 py-3 text-[#b42318]">
+            {submissionState.message}
+          </p>
+        ) : null}
+      </div>
+    </form>
+  );
+}
