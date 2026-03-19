@@ -18,10 +18,23 @@ export type ProcessStep = {
   description: string;
 };
 
-export type ReferencePlaceholder = {
+export type ShowcaseVideo = {
+  provider: "local" | "embed";
+  src: string;
+  poster?: string;
   title: string;
-  description: string;
-  tag: string;
+};
+
+export type ShowcaseItem = {
+  title: string;
+  subtitle: string;
+  previewImage: string;
+  previewAlt: string;
+  demoUrl: string;
+  detailUrl: string;
+  ctaText: string;
+  featured?: boolean;
+  video?: ShowcaseVideo;
 };
 
 export type PricingPlan = {
@@ -76,11 +89,11 @@ export type SiteContent = {
     description: string;
     steps: ProcessStep[];
   };
-  references: {
+  showcase: {
     title: string;
     description: string;
     note: string;
-    items: ReferencePlaceholder[];
+    items: ShowcaseItem[];
   };
   pricing: {
     title: string;
@@ -134,8 +147,8 @@ export const siteContent: SiteContent = {
   },
   navigation: [
     { label: "Služby", href: "#sluzby" },
+    { label: "Ukázky", href: "#ukazky" },
     { label: "Proč já", href: "#proc-ja" },
-    { label: "Postup", href: "#spoluprace" },
     { label: "Ceník", href: "#cenik" },
     { label: "FAQ", href: "#faq" },
     { label: "Kontakt", href: "#kontakt" },
@@ -260,29 +273,45 @@ export const siteContent: SiteContent = {
       },
     ],
   },
-  references: {
-    title: "Reference a ukázky",
+  showcase: {
+    title: "Ukázky webů s prémiovým dojmem",
     description:
-      "Tato sekce je připravená pro reálné ukázky. Zatím zde nechávám neutrální placeholdery bez smyšlených klientů a výsledků.",
-    note: "Jakmile budete mít první hotové realizace, stačí vyměnit text, obrázek a odkaz v jednom datovém souboru.",
+      "Vybrané ukázky různých stylů a oborů. Každý návrh je postavený tak, aby působil sebevědomě, moderně a vedl návštěvníka k jasné akci.",
+    note: "Všechny titulky, odkazy, obrázky i video upravíte přímo v tomto souboru. Featured karta používá lokální video `/public/showcase/video1.mp4` a zároveň má poster pro fallback.",
     items: [
       {
-        title: "Firemní prezentace pro lokální službu",
-        description:
-          "Místo pro budoucí ukázku webu, krátké shrnutí zadání a odkaz na realizaci.",
-        tag: "Placeholder pro budoucí referenci",
+        title: "Premium studio web",
+        subtitle: "Agenturní business prezentace s důrazem na nabídku a poptávku",
+        previewImage: "/showcase/demo1-preview.svg",
+        previewAlt: "Náhled prémiové studio prezentace v agenturním stylu",
+        demoUrl: "https://samolol.github.io/DEMO1/",
+        detailUrl: "#kontakt",
+        ctaText: "Chci podobný web",
+        featured: true,
+        video: {
+          provider: "local",
+          src: "/showcase/video1.mp4",
+          poster: "/showcase/demo1-preview.svg",
+          title: "Video ukázka prémiové studio prezentace",
+        },
       },
       {
-        title: "Landing page pro novou nabídku",
-        description:
-          "Připravený slot pro jednoduchou případovou ukázku bez nadsazených čísel a claimů.",
-        tag: "Placeholder pro budoucí referenci",
+        title: "Fine dining prezentace",
+        subtitle: "Luxusní gastro web s atmosférou, menu a rezervací",
+        previewImage: "/showcase/demo2-preview.svg",
+        previewAlt: "Náhled luxusní restaurace a fine dining prezentace",
+        demoUrl: "https://samolol.github.io/DEMO2/",
+        detailUrl: "#kontakt",
+        ctaText: "Chci podobný web",
       },
       {
-        title: "Redesign menšího firemního webu",
-        description:
-          "Místo pro pozdější doplnění screenshotu, popisu cíle a konkrétního přínosu projektu.",
-        tag: "Placeholder pro budoucí referenci",
+        title: "Autoservis s jasnou akcí",
+        subtitle: "Lokální automotive web s kalkulačkou, důvěrou a objednávkou",
+        previewImage: "/showcase/demo3-preview.svg",
+        previewAlt: "Náhled webu pro autoservis a automotive služby",
+        demoUrl: "https://samolol.github.io/DEMO3/",
+        detailUrl: "#kontakt",
+        ctaText: "Chci podobný web",
       },
     ],
   },

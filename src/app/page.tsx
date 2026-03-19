@@ -8,7 +8,7 @@ import { FinalCtaSection } from "@/components/sections/final-cta-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { PricingSection } from "@/components/sections/pricing-section";
 import { ProcessSection } from "@/components/sections/process-section";
-import { ReferencesSection } from "@/components/sections/references-section";
+import { ShowcaseSection } from "@/components/sections/showcase-section";
 import { ServicesSection } from "@/components/sections/services-section";
 
 export default function Home() {
@@ -18,9 +18,9 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection />
         <ServicesSection />
+        <ShowcaseSection />
         <BenefitsSection />
         <ProcessSection />
-        <ReferencesSection />
         <PricingSection />
         <AboutSection />
         <FaqSection />
