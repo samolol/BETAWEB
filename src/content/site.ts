@@ -379,8 +379,9 @@ export const siteContent: SiteContent = {
     description:
       "Napište mi, co potřebujete, a ozvu se s návrhem dalšího postupu. První poptávka je nezávazná.",
     cta: "Pojďme probrat váš web",
-    email: "ahoj@webnamiru.online",
-    phone: "+420 000 000 000",
+    email: "poptavky@webnamiru.online",
+    phone: "+420 725 161 471",
+    IČO: "24638161"
     availability: "Online spolupráce pro klienty z celé ČR",
     placeholders: {
       name: "Jak se jmenujete",
