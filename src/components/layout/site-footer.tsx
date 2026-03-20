@@ -14,6 +14,7 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {siteContent.brand.name}
           </p>
           <p>{siteContent.brand.domain}</p>
+          <p>{siteContent.contact.ico}</p>
         </div>
       </Container>
     </footer>
