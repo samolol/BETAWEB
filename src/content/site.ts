@@ -381,7 +381,6 @@ export const siteContent: SiteContent = {
     cta: "Pojďme probrat váš web",
     email: "poptavky@webnamiru.online",
     phone: "+420 725 161 471",
-    IČO: "24638161"
     availability: "Online spolupráce pro klienty z celé ČR",
     placeholders: {
       name: "Jak se jmenujete",
