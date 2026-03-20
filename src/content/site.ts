@@ -18,23 +18,10 @@ export type ProcessStep = {
   description: string;
 };
 
-export type ShowcaseVideo = {
-  provider: "local" | "embed";
-  src: string;
-  poster?: string;
-  title: string;
-};
-
 export type ShowcaseItem = {
   title: string;
   subtitle: string;
-  previewImage: string;
-  previewAlt: string;
   demoUrl: string;
-  detailUrl: string;
-  ctaText: string;
-  featured?: boolean;
-  video?: ShowcaseVideo;
 };
 
 export type PricingPlan = {
@@ -92,7 +79,6 @@ export type SiteContent = {
   showcase: {
     title: string;
     description: string;
-    note: string;
     items: ShowcaseItem[];
   };
   pricing: {
@@ -274,44 +260,27 @@ export const siteContent: SiteContent = {
     ],
   },
   showcase: {
-    title: "Ukázky webů s prémiovým dojmem",
+    title: "Ukázky vybraných webů",
     description:
-      "Vybrané ukázky různých stylů a oborů. Každý návrh je postavený tak, aby působil sebevědomě, moderně a vedl návštěvníka k jasné akci.",
-    note: "Všechny titulky, odkazy, obrázky i video upravíte přímo v tomto souboru. Featured karta používá lokální video `/public/showcase/video1.mp4` a zároveň má poster pro fallback.",
+      "Tři různé směry zpracování pro business, gastro a lokální služby. Čistě, moderně a bez zbytečné omáčky.",
     items: [
       {
-        title: "Premium studio web",
-        subtitle: "Agenturní business prezentace s důrazem na nabídku a poptávku",
-        previewImage: "/showcase/demo1-preview.svg",
-        previewAlt: "Náhled prémiové studio prezentace v agenturním stylu",
+        title: "Business studio prezentace",
+        subtitle:
+          "Moderní firemní web s čistou strukturou a prémiovým dojmem.",
         demoUrl: "https://samolol.github.io/DEMO1/",
-        detailUrl: "#kontakt",
-        ctaText: "Chci podobný web",
-        featured: true,
-        video: {
-          provider: "local",
-          src: "/showcase/video1.mp4",
-          poster: "/showcase/demo1-preview.svg",
-          title: "Video ukázka prémiové studio prezentace",
-        },
       },
       {
-        title: "Fine dining prezentace",
-        subtitle: "Luxusní gastro web s atmosférou, menu a rezervací",
-        previewImage: "/showcase/demo2-preview.svg",
-        previewAlt: "Náhled luxusní restaurace a fine dining prezentace",
+        title: "Gastro prezentace restaurace",
+        subtitle:
+          "Elegantní web pro restauraci s atmosférou, menu a rezervací.",
         demoUrl: "https://samolol.github.io/DEMO2/",
-        detailUrl: "#kontakt",
-        ctaText: "Chci podobný web",
       },
       {
-        title: "Autoservis s jasnou akcí",
-        subtitle: "Lokální automotive web s kalkulačkou, důvěrou a objednávkou",
-        previewImage: "/showcase/demo3-preview.svg",
-        previewAlt: "Náhled webu pro autoservis a automotive služby",
+        title: "Web pro autoservis",
+        subtitle:
+          "Praktický lokální web zaměřený na důvěru a rychlou poptávku.",
         demoUrl: "https://samolol.github.io/DEMO3/",
-        detailUrl: "#kontakt",
-        ctaText: "Chci podobný web",
       },
     ],
   },
