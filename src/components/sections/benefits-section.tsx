@@ -6,18 +6,24 @@ export function BenefitsSection() {
   return (
     <section id="proc-ja" className="scroll-mt-28 py-20 sm:py-24">
       <Container>
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start">
-          <SectionHeading
-            eyebrow="Proč si vybrat mě"
-            title={siteContent.benefits.title}
-            description={siteContent.benefits.description}
-          />
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-start">
+          <div className="rounded-[2.2rem] border border-[var(--color-line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.84),rgba(241,248,246,0.76))] p-7 shadow-[var(--shadow-soft)] sm:p-8">
+            <SectionHeading
+              eyebrow="Proč si vybrat mě"
+              title={siteContent.benefits.title}
+              description={siteContent.benefits.description}
+            />
+          </div>
 
           <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-            {siteContent.benefits.items.map((item) => (
+            {siteContent.benefits.items.map((item, index) => (
               <article
                 key={item.title}
-                className="rounded-[1.75rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-card)]"
+                className={`rounded-[1.8rem] border p-6 shadow-[var(--shadow-soft)] ${
+                  index === 0 || index === 3
+                    ? "border-[rgba(203,150,100,0.18)] bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(249,239,228,0.92))]"
+                    : "border-[var(--color-line)] bg-white/82"
+                }`}
               >
                 <h3 className="text-lg font-semibold text-[var(--color-text)]">
                   {item.title}

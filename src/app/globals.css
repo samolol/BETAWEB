@@ -1,17 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --color-bg: #f6f3ee;
-  --color-surface: rgba(255, 255, 255, 0.88);
-  --color-surface-elevated: #fcfbf8;
-  --color-surface-soft: #eef5f3;
-  --color-text: #142132;
-  --color-muted: #5b6575;
-  --color-line: rgba(20, 33, 50, 0.1);
-  --color-line-strong: rgba(20, 33, 50, 0.2);
-  --color-accent: #12766d;
-  --color-accent-strong: #0f5f58;
-  --shadow-card: 0 22px 60px rgba(20, 33, 50, 0.08);
+  --color-bg: #faf4ec;
+  --color-bg-soft: #f3e7d7;
+  --color-surface: rgba(255, 252, 247, 0.84);
+  --color-surface-elevated: rgba(255, 250, 244, 0.9);
+  --color-surface-soft: #f3ece2;
+  --color-surface-mint: #edf4f1;
+  --color-text: #192436;
+  --color-muted: #645f58;
+  --color-line: rgba(25, 36, 54, 0.08);
+  --color-line-strong: rgba(25, 36, 54, 0.16);
+  --color-accent: #1f7b70;
+  --color-accent-strong: #175d55;
+  --color-warm: #cb9664;
+  --shadow-card: 0 28px 74px rgba(94, 74, 48, 0.11);
+  --shadow-soft: 0 14px 36px rgba(94, 74, 48, 0.08);
+  --shadow-float: 0 24px 48px rgba(63, 47, 31, 0.14);
 }
 
 @theme inline {
@@ -26,9 +31,10 @@
   body {
     min-height: 100vh;
     background:
-      radial-gradient(circle at top left, rgba(18, 118, 109, 0.12), transparent 35%),
-      radial-gradient(circle at top right, rgba(20, 33, 50, 0.06), transparent 30%),
-      var(--color-bg);
+      radial-gradient(circle at top left, rgba(31, 123, 112, 0.14), transparent 26%),
+      radial-gradient(circle at top right, rgba(203, 150, 100, 0.22), transparent 22%),
+      radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.74), transparent 24%),
+      linear-gradient(180deg, #fffdf9 0%, var(--color-bg) 35%, var(--color-bg-soft) 100%);
     color: var(--color-text);
     font-family: var(--font-plus-jakarta), sans-serif;
   }
@@ -38,12 +44,11 @@
     position: fixed;
     inset: 0;
     pointer-events: none;
-    background-image:
-      linear-gradient(rgba(20, 33, 50, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(20, 33, 50, 0.04) 1px, transparent 1px);
-    background-size: 32px 32px;
-    mask-image: radial-gradient(circle at center, black, transparent 78%);
-    opacity: 0.32;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.5), transparent 16%),
+      radial-gradient(circle at 86% 14%, rgba(255, 255, 255, 0.44), transparent 14%),
+      radial-gradient(circle at 78% 78%, rgba(255, 255, 255, 0.32), transparent 18%);
+    opacity: 0.9;
   }
 
   * {
@@ -51,7 +56,7 @@
   }
 
   ::selection {
-    background: rgba(18, 118, 109, 0.18);
+    background: rgba(31, 123, 112, 0.18);
     color: var(--color-text);
   }
 
@@ -69,5 +74,13 @@
 
   p {
     text-wrap: pretty;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-fraunces), serif;
+    font-variation-settings: "SOFT" 70, "WONK" 0;
+    letter-spacing: -0.03em;
   }
 }

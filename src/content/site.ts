@@ -286,46 +286,49 @@ export const siteContent: SiteContent = {
     ],
   },
   pricing: {
-    title: "Orientační ceník",
+    title: "Balíčky a orientační ceny",
     description:
-      "Každý web má jiný rozsah, takže finální nabídka je vždy individuální. Pro první orientaci ale dává smysl mít jasný rámec.",
-    note: "Uvedené ceny jsou startovací. Konečná cena se odvíjí od rozsahu, obsahu a požadovaných funkcí.",
+      "Vyberte si rozsah, který dává smysl pro váš projekt. Přesná nabídka se vždy odvíjí od konkrétního zadání.",
+    note: "Uvedené ceny jsou orientační. Přesnou nabídku připravím podle rozsahu, obsahu a případných funkcí.",
     plans: [
       {
         name: "Starter web",
-        price: "od 19 900 Kč",
+        price: "od 8 900 Kč",
         description:
-          "Pro jednoduchou prezentaci služby nebo menšího podnikání.",
+          "Pro jednoduchou online prezentaci služby nebo menšího podnikání.",
         features: [
-          "Jedna až několik přehledných sekcí",
-          "Responzivní zobrazení",
-          "Silné CTA a kontaktní formulář",
+          "1 přehledná stránka / landing page",
+          "Responzivní zobrazení pro mobil i desktop",
+          "Kontaktní formulář a výrazná CTA tlačítka",
           "Základní technické SEO",
+          "Dodání rychle a bez zbytečné složitosti",
         ],
       },
       {
         name: "Firemní web",
-        price: "od 34 900 Kč",
+        price: "od 16 900 Kč",
         description:
-          "Pro firmy a živnostníky, kteří chtějí důvěryhodný a profesionální web.",
+          "Pro firmy a živnostníky, kteří chtějí profesionální web, který budí důvěru a přivádí poptávky.",
         features: [
-          "Více obsahových sekcí a jasná struktura",
-          "Individuální vizuální návrh",
+          "3–5 podstránek s jasnou strukturou",
+          "Individuálně upravený vzhled na základě šablony",
           "Obsah zaměřený na poptávky",
-          "Příprava na další rozšíření",
+          "Základní SEO a responzivita",
+          "Připraveno pro další rozšíření",
         ],
         featured: true,
       },
       {
         name: "Web na míru",
-        price: "od 59 900 Kč",
+        price: "od 29 900 Kč",
         description:
-          "Pro specifické zadání, rozsáhlejší obsah nebo individuální funkce.",
+          "Pro specifičtější zadání, rozsáhlejší obsah nebo individuální funkce.",
         features: [
           "Návrh řešení podle konkrétního cíle",
-          "Vyšší rozsah a více podstránek",
+          "Větší rozsah a více podstránek",
           "Pokročilejší obsahová struktura",
-          "Individuální nabídka a konzultace",
+          "Individuální konzultace a návrh postupu",
+          "Možnost navazujícího rozvoje",
         ],
       },
     ],
@@ -340,7 +343,7 @@ export const siteContent: SiteContent = {
     points: [
       "Osobní spolupráce bez zbytečných mezičlánků",
       "Praktický pohled na web jako nástroj pro byznys",
-      "Řešení, které se dá dále rozvíjet",
+      "Řešení, které se dá dál rozvíjet",
     ],
   },
   faq: {
@@ -382,7 +385,7 @@ export const siteContent: SiteContent = {
     cta: "Pojďme probrat váš web",
     email: "poptavky@webnamiru.online",
     phone: "+420 725 161 471",
-    ico: " IČO:24638161",
+    ico: "IČO: 24638161",
     availability: "Online spolupráce pro klienty z celé ČR",
     placeholders: {
       name: "Jak se jmenujete",

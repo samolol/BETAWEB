@@ -7,10 +7,11 @@ type ButtonLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
 
 const variantClasses: Record<NonNullable<ButtonLinkProps["variant"]>, string> = {
   primary:
-    "bg-[var(--color-accent)] text-white shadow-[0_16px_40px_rgba(15,118,110,0.24)] hover:-translate-y-0.5 hover:bg-[var(--color-accent-strong)]",
+    "border border-white/20 bg-[linear-gradient(135deg,var(--color-accent),#328b80)] text-white shadow-[0_18px_44px_rgba(31,123,112,0.24)] ring-1 ring-white/12 hover:-translate-y-0.5 hover:shadow-[0_24px_54px_rgba(31,123,112,0.28)] hover:brightness-[1.03]",
   secondary:
-    "border border-[var(--color-line-strong)] bg-white/85 text-[var(--color-text)] hover:-translate-y-0.5 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]",
-  ghost: "text-[var(--color-text)] hover:text-[var(--color-accent)]",
+    "border border-[var(--color-line-strong)] bg-white/82 text-[var(--color-text)] shadow-[var(--shadow-soft)] hover:-translate-y-0.5 hover:border-[rgba(31,123,112,0.22)] hover:bg-white hover:shadow-[var(--shadow-float)]",
+  ghost:
+    "px-0 text-[var(--color-text)] hover:translate-x-0.5 hover:text-[var(--color-accent)]",
 };
 
 export function ButtonLink({

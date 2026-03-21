@@ -24,7 +24,7 @@ Web poběží na [http://localhost:3000](http://localhost:3000).
 - one-page homepage v češtině
 - sticky header a anchor navigace
 - hero, služby, proč si vybrat mě, postup, reference placeholdery, ceník, o mně, FAQ, kontakt
-- validovaný kontaktní formulář s lokálním API handlerem
+- validovaný kontaktní formulář napojený na Formspree
 - metadata, Open Graph, sitemap, robots a JSON-LD schema
 - připraveno pro deploy na Vercel
 
@@ -35,14 +35,13 @@ Web poběží na [http://localhost:3000](http://localhost:3000).
 - schema.org skladba a metadata helper: `src/lib/seo.ts`
 - barvy, pozadí a vizuální tokeny: `src/app/globals.css`
 - logika formuláře a validační texty: `src/components/contact-form.tsx`
-- serverové zpracování formuláře: `src/app/api/contact/route.ts`
+- Formspree endpoint: `.env.local` nebo Vercel env `NEXT_PUBLIC_FORMSPREE_ENDPOINT`
 
 ## Struktura projektu
 
 ```text
 src/
   app/
-    api/contact/route.ts
     globals.css
     icon.svg
     layout.tsx
@@ -74,17 +73,20 @@ src/
     site.ts
   lib/
     contact-schema.ts
-    contact.ts
     seo.ts
 ```
 
-## Poznámka k formuláři
+## Formspree
 
-Formulář zatím nic neposílá e-mailem. Po validním odeslání:
+1. Ve Formspree vytvořte nový formulář.
+2. V detailu formuláře zkopírujte jeho endpoint ve tvaru `https://formspree.io/f/xxxxxx`.
+3. Do `.env.local` v kořeni projektu vložte:
 
-- proběhne klientská i serverová validace
-- data se odešlou na `POST /api/contact`
-- server payload zaloguje
-- UI zobrazí úspěch nebo chybu
+```bash
+NEXT_PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/xxxxxx
+```
 
-Pro napojení na e-mailovou službu stačí doplnit implementaci v `src/lib/contact.ts`.
+4. Na Vercelu nastavte stejnou proměnnou v `Project Settings -> Environment Variables`.
+5. Po změně env proměnných restartujte lokální dev server a na Vercelu proveďte nový deploy.
+
+Formulář zachovává klientskou validaci, loading stav, chybové a úspěšné hlášky. Pokud endpoint chybí, UI zobrazí bezpečnou chybovou zprávu v češtině.

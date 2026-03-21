@@ -1,78 +1,133 @@
+import Image from "next/image";
+
 import { siteContent } from "@/content/site";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 
+const heroVisuals = [
+  {
+    src: "/images/hero-browser-placeholder.svg",
+    alt: "Placeholder vizuálu moderního business webu v browser mockupu.",
+  },
+  {
+    src: "/images/hero-notebook-placeholder.svg",
+    alt: "Placeholder fotografie pracovního stolu nebo notebooku při návrhu webu.",
+  },
+  {
+    src: "/images/hero-lifestyle-placeholder.svg",
+    alt: "Placeholder fotografie malého businessu nebo lokální služby.",
+  },
+];
+
 export function HeroSection() {
   return (
-    <section id="top" className="relative overflow-hidden pb-20 pt-14 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[34rem] bg-[radial-gradient(circle_at_top_left,rgba(15,118,110,0.12),transparent_48%),radial-gradient(circle_at_top_right,rgba(13,148,136,0.10),transparent_34%)]" />
+    <section
+      id="top"
+      className="relative overflow-hidden pb-22 pt-12 sm:pb-24 sm:pt-18 lg:pb-30 lg:pt-22"
+    >
+      <div className="absolute inset-x-0 top-0 -z-10 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(31,123,112,0.2),transparent_30%),radial-gradient(circle_at_80%_14%,rgba(203,150,100,0.22),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.74),transparent)]" />
+
       <Container>
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] lg:items-center">
+        <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(420px,0.96fr)] lg:items-center">
           <div className="max-w-3xl">
-            <p className="inline-flex rounded-full border border-[var(--color-line)] bg-white/75 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)] shadow-[var(--shadow-card)]">
+            <p className="inline-flex rounded-full border border-[rgba(31,123,112,0.14)] bg-white/84 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)] shadow-[var(--shadow-soft)]">
               {siteContent.brand.eyebrow}
             </p>
 
-            <h1 className="mt-7 max-w-4xl text-4xl font-semibold tracking-tight text-[var(--color-text)] sm:text-5xl lg:text-6xl">
+            <h1 className="font-display mt-7 max-w-5xl text-[3.2rem] leading-[0.95] text-[var(--color-text)] sm:text-[4.35rem] lg:text-[5.15rem]">
               {siteContent.hero.title}
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-muted)] sm:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-muted)] sm:text-[1.15rem]">
               {siteContent.hero.description}
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <ButtonLink href="#kontakt">{siteContent.hero.primaryCta}</ButtonLink>
-              <ButtonLink href="#sluzby" variant="secondary">
+            <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              <ButtonLink className="min-w-[12rem]" href="#kontakt">
+                {siteContent.hero.primaryCta}
+              </ButtonLink>
+              <ButtonLink href="#sluzby" variant="ghost">
                 {siteContent.hero.secondaryCta}
               </ButtonLink>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              {siteContent.hero.highlights.map((item) => (
-                <span
+            <div className="mt-10 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+              {siteContent.hero.highlights.map((item, index) => (
+                <div
                   key={item}
-                  className="rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-2 text-sm font-medium text-[var(--color-text)]"
+                  className={`rounded-[1.4rem] border px-4 py-3 text-sm leading-6 shadow-[var(--shadow-soft)] ${
+                    index === 1
+                      ? "border-[rgba(203,150,100,0.22)] bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(248,239,229,0.95))]"
+                      : "border-[var(--color-line)] bg-white/80"
+                  }`}
                 >
                   {item}
-                </span>
+                </div>
               ))}
             </div>
           </div>
 
           <div className="relative">
-            <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-[2rem] bg-[linear-gradient(135deg,rgba(15,118,110,0.14),rgba(255,255,255,0.9))]" />
-            <div className="relative rounded-[2rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-7 shadow-[var(--shadow-card)] sm:p-8">
-              <div className="flex items-center justify-between">
-                <span className="rounded-full bg-[var(--color-surface-soft)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
-                  Strategie
-                </span>
-                <span className="text-sm text-[var(--color-muted)]">webnamiru.online</span>
+            <div className="absolute -left-6 top-10 h-40 w-40 rounded-full bg-[rgba(31,123,112,0.14)] blur-3xl" />
+            <div className="absolute -right-4 bottom-8 h-44 w-44 rounded-full bg-[rgba(203,150,100,0.18)] blur-3xl" />
+
+            <div className="relative min-h-[34rem] sm:min-h-[39rem]">
+              <div className="absolute left-0 top-6 z-10 w-[72%] overflow-hidden rounded-[2.2rem] border border-white/60 bg-white/86 shadow-[var(--shadow-card)]">
+                <div className="flex items-center gap-2 border-b border-[var(--color-line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(247,240,231,0.92))] px-4 py-3">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#ef8574]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#f3bf62]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#64bd8c]" />
+                  <span className="ml-3 rounded-full bg-white px-3 py-1 text-[11px] font-medium text-[var(--color-muted)] shadow-[var(--shadow-soft)]">
+                    webnamiru.online
+                  </span>
+                </div>
+                <div className="relative aspect-[5/4.2]">
+                  <Image
+                    src={heroVisuals[0].src}
+                    alt={heroVisuals[0].alt}
+                    fill
+                    sizes="(max-width: 1023px) 80vw, 30vw"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
               </div>
 
-              <h2 className="mt-8 text-2xl font-semibold text-[var(--color-text)]">
-                {siteContent.hero.panelTitle}
-              </h2>
+              <div className="absolute right-0 top-0 w-[39%] overflow-hidden rounded-[1.85rem] border border-white/60 bg-white/82 shadow-[var(--shadow-soft)]">
+                <div className="relative aspect-[4/4.8]">
+                  <Image
+                    src={heroVisuals[1].src}
+                    alt={heroVisuals[1].alt}
+                    fill
+                    sizes="(max-width: 1023px) 40vw, 18vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
 
-              <ul className="mt-6 space-y-4">
-                {siteContent.hero.panelItems.map((item) => (
-                  <li
-                    key={item}
-                    className="flex gap-4 rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-4 py-4 text-sm leading-7 text-[var(--color-muted)]"
-                  >
-                    <span className="mt-1 h-2.5 w-2.5 flex-none rounded-full bg-[var(--color-accent)]" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="absolute bottom-0 right-10 w-[46%] overflow-hidden rounded-[1.85rem] border border-white/60 bg-white/82 shadow-[var(--shadow-soft)]">
+                <div className="relative aspect-[4/3.2]">
+                  <Image
+                    src={heroVisuals[2].src}
+                    alt={heroVisuals[2].alt}
+                    fill
+                    sizes="(max-width: 1023px) 46vw, 20vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
 
-              <div className="mt-8 rounded-2xl border border-[var(--color-line)] bg-white p-5">
-                <p className="text-sm font-semibold text-[var(--color-text)]">
-                  Výsledek pro klienta
+              <div className="absolute left-[46%] top-[44%] z-20 max-w-[17rem] rounded-[1.6rem] border border-white/60 bg-white/90 px-5 py-4 shadow-[var(--shadow-float)] backdrop-blur">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+                  První dojem
                 </p>
-                <p className="mt-2 text-sm leading-7 text-[var(--color-muted)]">
-                  Přehledný web, který zjednoduší rozhodování návštěvníka a povede ho k poptávce.
+                <p className="mt-3 text-sm font-medium leading-6 text-[var(--color-text)]">
+                  Přehledný web, který působí klidně, současně a důvěryhodně.
                 </p>
+              </div>
+
+              <div className="absolute left-6 top-[68%] z-20 rounded-full border border-white/60 bg-white/88 px-4 py-2 text-xs font-semibold text-[var(--color-text)] shadow-[var(--shadow-soft)]">
+                Rychlý, responzivní, na míru
               </div>
             </div>
           </div>
