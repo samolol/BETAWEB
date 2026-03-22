@@ -20,6 +20,12 @@ export const contactFormSchema = z.object({
     .trim()
     .min(20, "Popište prosím stručně, co potřebujete.")
     .max(2000, "Zpráva je příliš dlouhá."),
+  privacyConsent: z
+    .boolean()
+    .refine(
+      (value) => value,
+      "Pro odeslání je potřeba souhlasit se zpracováním osobních údajů.",
+    ),
   honeypot: z.string().trim().max(0).optional().or(z.literal("")),
 });
 

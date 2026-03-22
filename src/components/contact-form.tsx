@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -37,6 +38,7 @@ function FieldError({ message }: { message?: string }) {
 }
 
 export function ContactForm() {
+  const privacy = siteContent.legal.privacy;
   const [submissionState, setSubmissionState] = useState<SubmissionState>({
     type: "idle",
     message: "",
@@ -54,6 +56,7 @@ export function ContactForm() {
       email: "",
       phone: "",
       message: "",
+      privacyConsent: false,
       honeypot: "",
     },
   });
@@ -90,6 +93,7 @@ export function ContactForm() {
           email: values.email,
           phone: values.phone,
           message: values.message,
+          privacyConsent: values.privacyConsent,
         }),
       });
 
@@ -207,6 +211,34 @@ export function ContactForm() {
           {...register("message")}
         />
         <FieldError message={errors.message?.message} />
+      </div>
+
+      <div className="mt-5">
+        <div className="rounded-[1.35rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.72)] px-4 py-3">
+          <div className="flex items-start gap-3">
+            <input
+              id="privacyConsent"
+              type="checkbox"
+              className="mt-1 h-4 w-4 rounded border-[var(--color-line-strong)] accent-[var(--color-accent)]"
+              {...register("privacyConsent")}
+            />
+            <span className="text-sm leading-6 text-[var(--color-muted)]">
+              <label className="cursor-pointer" htmlFor="privacyConsent">
+                {privacy.checkboxLabelPrefix}{" "}
+              </label>
+              <Link
+                className="font-medium text-[var(--color-text)] underline decoration-[rgba(31,123,112,0.35)] underline-offset-4 transition hover:text-[var(--color-accent)]"
+                href={privacy.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {privacy.checkboxLinkLabel}
+              </Link>
+              .
+            </span>
+          </div>
+        </div>
+        <FieldError message={errors.privacyConsent?.message} />
       </div>
 
       <div className="hidden" aria-hidden="true">

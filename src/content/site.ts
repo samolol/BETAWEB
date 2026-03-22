@@ -44,6 +44,46 @@ export type ContactFieldPlaceholder = {
   message: string;
 };
 
+export type PrivacyContent = {
+  href: string;
+  linkLabel: string;
+  checkboxLabelPrefix: string;
+  checkboxLinkLabel: string;
+  pageTitle: string;
+  pageDescription: string;
+  backLabel: string;
+  controllerHeading: string;
+  dataHeading: string;
+  dataItems: string[];
+  purposeHeading: string;
+  purposeItems: string[];
+  retentionHeading: string;
+  retentionText: string;
+  accessHeading: string;
+  accessItems: string[];
+  rightsHeading: string;
+  rightsItems: string[];
+};
+
+export type TermsSection = {
+  title: string;
+  paragraphs?: string[];
+  bullets?: string[];
+  showSupplierDetails?: boolean;
+};
+
+export type TermsContent = {
+  href: string;
+  linkLabel: string;
+  pageTitle: string;
+  pageDescription: string;
+  backLabel: string;
+  introTitle: string;
+  sections: TermsSection[];
+  closingPlace: string;
+  closingDate: string;
+};
+
 export type SiteContent = {
   brand: {
     name: string;
@@ -106,6 +146,10 @@ export type SiteContent = {
     ico: string;
     availability: string;
     placeholders: ContactFieldPlaceholder;
+  };
+  legal: {
+    privacy: PrivacyContent;
+    terms: TermsContent;
   };
   finalCta: {
     title: string;
@@ -392,6 +436,113 @@ export const siteContent: SiteContent = {
       email: "vas@email.cz",
       phone: "+420 777 000 000",
       message: "Stručně popište, co potřebujete a jaký má web splnit cíl.",
+    },
+  },
+  legal: {
+    privacy: {
+      href: "/ochrana-osobnich-udaju",
+      linkLabel: "Ochrana osobních údajů",
+      checkboxLabelPrefix: "Souhlasím se zpracováním osobních údajů podle",
+      checkboxLinkLabel: "zásad ochrany osobních údajů",
+      pageTitle: "Ochrana osobních údajů",
+      pageDescription:
+        "Základní informace o tom, jak nakládám s osobními údaji při odeslání poptávky přes tento web.",
+      backLabel: "Zpět na hlavní stránku",
+      controllerHeading: "Správce osobních údajů",
+      dataHeading: "Jaké údaje zpracovávám",
+      dataItems: ["jméno", "e-mail", "telefon (pokud uvedete)", "obsah zprávy"],
+      purposeHeading: "Účel",
+      purposeItems: ["odpověď na poptávku", "komunikace ohledně služeb"],
+      retentionHeading: "Doba uchování",
+      retentionText:
+        "Pouze po dobu nezbytně nutnou k vyřízení poptávky nebo spolupráce.",
+      accessHeading: "Přístup k údajům",
+      accessItems: ["pouze správce", "údaje nepředávám třetím stranám"],
+      rightsHeading: "Práva uživatele",
+      rightsItems: ["přístup k údajům", "oprava", "výmaz", "námitka proti zpracování"],
+    },
+    terms: {
+      href: "/obchodni-podminky",
+      linkLabel: "Obchodní podmínky",
+      pageTitle: "Obchodní podmínky",
+      pageDescription:
+        "Základní obchodní podmínky pro poskytování služeb tvorby webových stránek na míru.",
+      backLabel: "Zpět na hlavní stránku",
+      introTitle: "Obchodní podmínky",
+      sections: [
+        {
+          title: "1. Úvodní ustanovení",
+          paragraphs: [
+            "Tyto obchodní podmínky upravují vztah mezi dodavatelem a objednatelem při poskytování služeb tvorby webových stránek.",
+          ],
+          showSupplierDetails: true,
+        },
+        {
+          title: "2. Služby",
+          paragraphs: [
+            "Dodavatel poskytuje služby v oblasti tvorby webových stránek na míru dle individuální dohody s klientem.",
+          ],
+        },
+        {
+          title: "3. Uzavření spolupráce",
+          paragraphs: [
+            "Spolupráce vzniká na základě potvrzení nabídky, například e-mailem nebo podpisem smlouvy.",
+          ],
+        },
+        {
+          title: "4. Cena a platební podmínky",
+          bullets: [
+            "cena je stanovena individuálně",
+            "obvykle se hradí záloha 50 % před zahájením práce",
+            "Bez uhrazení zálohy není práce zahájena.",
+            "doplatek je splatný před předáním hotového webu",
+          ],
+        },
+        {
+          title: "5. Dodání a termíny",
+          paragraphs: [
+            "Termín dodání je individuální a závisí na rozsahu projektu a dodání podkladů ze strany klienta.",
+          ],
+        },
+        {
+          title: "6. Povinnosti objednatele",
+          paragraphs: [
+            "Objednatel je povinen dodat potřebné podklady, například texty, obrázky a přístupy, včas.",
+            "Zpoždění může ovlivnit termín dodání.",
+          ],
+        },
+        {
+          title: "7. Úpravy",
+          paragraphs: [
+            "V ceně jsou zahrnuty pouze dohodnuté úpravy. Další úpravy mohou být zpoplatněny.",
+          ],
+        },
+        {
+          title: "8. Předání díla",
+          paragraphs: [
+            "Web je předán po uhrazení celé částky.",
+            "Do té doby zůstává majetkem dodavatele.",
+          ],
+        },
+        {
+          title: "9. Odpovědnost",
+          paragraphs: [
+            "Dodavatel nenese odpovědnost za obsah dodaný objednatelem.",
+          ],
+        },
+        {
+          title: "10. Zrušení spolupráce",
+          paragraphs: [
+            "V případě zrušení spolupráce ze strany objednatele se zaplacená záloha nevrací.",
+          ],
+        },
+        {
+          title: "11. Závěrečná ustanovení",
+          paragraphs: ["Tyto podmínky mohou být aktualizovány."],
+        },
+      ],
+      closingPlace: "[město]",
+      closingDate: "[datum]",
     },
   },
   finalCta: {
