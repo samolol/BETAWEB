@@ -4,20 +4,20 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 export function ProcessSection() {
   return (
-    <section id="spoluprace" className="scroll-mt-28 py-20 sm:py-24">
+    <section id="proces" className="scroll-mt-28 py-20 sm:py-24">
       <Container>
         <SectionHeading
-          eyebrow="Spolupráce"
+          eyebrow="Proces"
           title={siteContent.process.title}
           description={siteContent.process.description}
         />
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-5">
+        <div className="mt-12 grid gap-5 lg:grid-cols-3">
           {siteContent.process.steps.map((step, index) => (
             <article
               key={step.title}
               className={`relative rounded-[1.85rem] border p-6 sm:p-7 ${
-                index === 2
+                index === 1
                   ? "border-[rgba(31,123,112,0.18)] bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(237,244,242,0.94))] shadow-[var(--shadow-card)]"
                   : "border-[var(--color-line)] bg-white/82 shadow-[var(--shadow-soft)]"
               }`}

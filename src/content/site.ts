@@ -97,6 +97,7 @@ export type SiteContent = {
     description: string;
     primaryCta: string;
     secondaryCta: string;
+    offerNote: string;
     highlights: string[];
     panelTitle: string;
     panelItems: string[];
@@ -141,6 +142,7 @@ export type SiteContent = {
     title: string;
     description: string;
     cta: string;
+    responseNote: string;
     email: string;
     phone: string;
     ico: string;
@@ -177,25 +179,20 @@ export const siteContent: SiteContent = {
     location: "Česká republika",
   },
   navigation: [
-    { label: "Služby", href: "#sluzby" },
-    { label: "Ukázky", href: "#ukazky" },
-    { label: "Proč já", href: "#proc-ja" },
-    { label: "Ceník", href: "#cenik" },
-    { label: "FAQ", href: "#faq" },
+    { label: "Problém", href: "#problem" },
+    { label: "Řešení", href: "#reseni" },
+    { label: "Reference", href: "#reference" },
+    { label: "Proces", href: "#proces" },
+    { label: "O mně", href: "#o-mne" },
     { label: "Kontakt", href: "#kontakt" },
   ],
   hero: {
-    title: "Web, který působí profesionálně a přivádí nové poptávky.",
-    description:
-      "Tvořím rychlé a přehledné weby na míru pro menší firmy, služby a podnikatele. Bez chaosu, bez zbytečností, s důrazem na jasnou nabídku a důvěryhodný první dojem.",
+    title: "Web, který vám přivede zákazníky — ne jen vizitku.",
+    description: "Rychlé řešení pro malé firmy, které chtějí víc poptávek.",
     primaryCta: "Nezávazná poptávka",
     secondaryCta: "Zjistit více",
-    highlights: [
-      "Responzivní design",
-      "Rychlé načítání",
-      "SEO-ready základ",
-      "Snadná další správa",
-    ],
+    offerNote: "Odpovím do 24 hodin",
+    highlights: ["Jasná nabídka", "Víc poptávek", "Bez zbytečností"],
     panelTitle: "Co od webu potřebujete nejčastěji?",
     panelItems: [
       "Aby návštěvník rychle pochopil, co nabízíte.",
@@ -204,127 +201,85 @@ export const siteContent: SiteContent = {
     ],
   },
   services: {
-    title: "Služby, které dávají smysl pro menší byznys",
+    title: "Proč web často nefunguje",
     description:
-      "Každý web stavím podle cíle: získat poptávku, přehledně představit službu nebo posunout stávající web na profesionálnější úroveň.",
+      "Návštěvník se musí během pár sekund zorientovat. Jinak odejde bez kontaktu.",
     items: [
       {
-        title: "Tvorba webů na míru",
+        title: "Nejasná nabídka",
         description:
-          "Řešení navržené podle vašeho oboru, nabídky a cíle. Bez univerzální šablony, která neodpovídá vašemu podnikání.",
+          "Lidé rychle nepochopí, co nabízíte a proč vás oslovit.",
       },
       {
-        title: "Firemní weby",
+        title: "Slabá důvěra",
         description:
-          "Web, který jasně vysvětlí, co děláte, proč vám věřit a jak vás může klient snadno kontaktovat.",
+          "Zastaralý nebo chaotický web snižuje šanci, že se někdo ozve.",
       },
       {
-        title: "Landing page",
+        title: "Bez jasné akce",
         description:
-          "Jedna silná stránka pro konkrétní službu, nabídku nebo kampaň. Přehledná struktura a jasná výzva k akci.",
-      },
-      {
-        title: "Redesign webu",
-        description:
-          "Pokud současný web působí zastarale nebo neplní svůj účel, navrhnu čistší, srozumitelnější a výkonnější variantu.",
-      },
-      {
-        title: "Základní SEO nastavení",
-        description:
-          "Web připravím tak, aby měl správné technické základy pro vyhledávače a byl dobře čitelný pro uživatele.",
-      },
-      {
-        title: "Technická správa a úpravy",
-        description:
-          "Po spuštění nezůstáváte sami. Pomohu s dalšími úpravami, rozšířením obsahu i technickou údržbou.",
+          "Když web nevede k poptávce, návštěvník jen projde a zmizí.",
       },
     ],
   },
   benefits: {
-    title: "Proč si vybrat právě mě",
+    title: "Co dostanete",
     description:
-      "Neprodávám zbytečně složité řešení. Cílem je web, který vypadá dobře, funguje rychle a pomáhá vám obchodně.",
+      "Jednoduchý web, který návštěvníka rychle nasměruje k poptávce.",
     items: [
       {
-        title: "Individuální přístup",
+        title: "Jasnou strukturu",
         description:
-          "Nehledám univerzální šablonu. Návrh přizpůsobuji tomu, co opravdu potřebujete vy a váš byznys.",
+          "Hned je vidět, co nabízíte a proč vás oslovit.",
       },
       {
-        title: "Rychlá komunikace",
+        title: "Důvěryhodný vzhled",
         description:
-          "Odpovědi bez zdržování, jasné kroky a průběžné informace, abyste věděli, v jaké fázi se web nachází.",
+          "Moderní a přehledný web, který funguje na mobilu i desktopu.",
       },
       {
-        title: "Web zaměřený na výkon",
+        title: "Jasnou výzvu k akci",
         description:
-          "Struktura, texty a CTA směřují k tomu, aby se návštěvník snadno rozhodl udělat další krok.",
-      },
-      {
-        title: "Moderní design",
-        description:
-          "Čistý a aktuální vzhled, který působí důvěryhodně dnes i za několik let, ne jen při prvním dojmu.",
-      },
-      {
-        title: "Přehledné řešení bez zbytečností",
-        description:
-          "Žádný vizuální chaos ani funkce navíc jen proto, že to jde. Každá část webu má jasný účel.",
+          "Návštěvník ví, kam kliknout a jak vás kontaktovat.",
       },
     ],
   },
   process: {
     title: "Jak probíhá spolupráce",
-    description:
-      "Spolupráce je jednoduchá, srozumitelná a bez zbytečných koleček. Potřebuji od vás hlavně jasný cíl a základní podklady.",
+    description: "Stručně, přehledně a bez zbytečných koleček.",
     steps: [
       {
-        title: "Úvodní konzultace",
-        description:
-          "Probereme, co nabízíte, komu je web určený a jaký má mít výsledek.",
+        title: "Domluvíme zadání",
+        description: "Krátce si ujasníme cíl, obsah a rozsah.",
       },
       {
-        title: "Návrh řešení",
-        description:
-          "Navrhnu vhodnou strukturu, rozsah a směr webu včetně doporučení dalšího postupu.",
+        title: "Připravím web",
+        description: "Navrhnu strukturu a postavím web na míru vašemu oboru.",
       },
       {
-        title: "Tvorba webu",
-        description:
-          "Postavím web s důrazem na čitelnost, rychlost, mobilní zobrazení a jasné CTA.",
-      },
-      {
-        title: "Úpravy a spuštění",
-        description:
-          "Doladíme detaily, projdeme připomínky a připravíme web ke spuštění.",
-      },
-      {
-        title: "Podpora po dokončení",
-        description:
-          "Pokud budete chtít, navážeme další správou, úpravami nebo rozvojem webu.",
+        title: "Doladíme a spustíme",
+        description: "Zapracujeme připomínky a web pustíme ven.",
       },
     ],
   },
   showcase: {
-    title: "Ukázky vybraných webů",
+    title: "Ukázky webů",
     description:
-      "Tři různé směry zpracování pro business, gastro a lokální služby. Čistě, moderně a bez zbytečné omáčky.",
+      "Tři různé styly pro firmy, gastro a lokální služby.",
     items: [
       {
-        title: "Business studio prezentace",
-        subtitle:
-          "Moderní firemní web s čistou strukturou a prémiovým dojmem.",
+        title: "Firemní web",
+        subtitle: "Čistá prezentace služby s důrazem na důvěru.",
         demoUrl: "https://samolol.github.io/DEMO1/",
       },
       {
-        title: "Gastro prezentace restaurace",
-        subtitle:
-          "Elegantní web pro restauraci s atmosférou, menu a rezervací.",
+        title: "Gastro web",
+        subtitle: "Atmosféra, menu a jasná cesta k rezervaci.",
         demoUrl: "https://samolol.github.io/DEMO2/",
       },
       {
         title: "Web pro autoservis",
-        subtitle:
-          "Praktický lokální web zaměřený na důvěru a rychlou poptávku.",
+        subtitle: "Praktický web pro lokální službu a rychlý kontakt.",
         demoUrl: "https://samolol.github.io/DEMO3/",
       },
     ],
@@ -380,14 +335,14 @@ export const siteContent: SiteContent = {
   about: {
     title: "O mně",
     paragraphs: [
-      "Jsem podnikatel z ČR a tvořím weby na míru pro firmy, živnostníky a menší podnikatele, kteří chtějí na internetu působit profesionálně a získávat nové klienty.",
-      "Na web se dívám prakticky. Nestačí, aby jen vypadal dobře. Musí být srozumitelný, rychlý a pomáhat návštěvníkovi udělat další krok.",
-      "Zakládám si na osobním přístupu, stručné komunikaci a řešení bez zbytečností. Cílem je web, který má obchodní smysl a dobře se s ním pracuje i do budoucna.",
+      "Tvořím weby na míru pro malé firmy a služby.",
+      "Stavím je tak, aby byly přehledné, důvěryhodné a vedly ke kontaktu.",
+      "Komunikuji stručně a řeším jen to, co má pro váš web smysl.",
     ],
     points: [
-      "Osobní spolupráce bez zbytečných mezičlánků",
-      "Praktický pohled na web jako nástroj pro byznys",
-      "Řešení, které se dá dál rozvíjet",
+      "Osobní spolupráce",
+      "Praktický přístup",
+      "Web, který se dá dál rozvíjet",
     ],
   },
   faq: {
@@ -423,10 +378,11 @@ export const siteContent: SiteContent = {
     ],
   },
   contact: {
-    title: "Pojďme probrat váš web",
+    title: "Nezávazná poptávka",
     description:
-      "Napište mi, co potřebujete, a ozvu se s návrhem dalšího postupu. První poptávka je nezávazná.",
-    cta: "Pojďme probrat váš web",
+      "Napište pár vět o tom, co potřebujete. Ozvu se zpět a navrhnu další krok.",
+    cta: "Nezávazná poptávka",
+    responseNote: "od 5 000 Kč",
     email: "poptavky@webnamiru.online",
     phone: "+420 725 161 471",
     ico: "IČO: 24638161",

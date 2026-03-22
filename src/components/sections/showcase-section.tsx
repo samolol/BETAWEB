@@ -5,14 +5,14 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 export function ShowcaseSection() {
   return (
-    <section id="ukazky" className="scroll-mt-28 py-20 sm:py-24">
+    <section id="reference" className="scroll-mt-28 py-20 sm:py-24">
       <Container>
         <div className="relative overflow-hidden rounded-[2.6rem] border border-[var(--color-line)] bg-[linear-gradient(180deg,rgba(27,37,54,0.95),rgba(31,49,65,0.96))] px-6 py-10 shadow-[0_38px_110px_rgba(31,37,49,0.24)] sm:px-8 lg:px-10 lg:py-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(31,123,112,0.24),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(203,150,100,0.2),transparent_24%)]" />
 
           <div className="relative">
             <SectionHeading
-              eyebrow="Ukázky"
+              eyebrow="Reference"
               title={siteContent.showcase.title}
               description={siteContent.showcase.description}
               theme="inverse"

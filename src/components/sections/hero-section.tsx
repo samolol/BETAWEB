@@ -42,16 +42,17 @@ export function HeroSection() {
               {siteContent.hero.description}
             </p>
 
-            <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+            <div className="mt-8">
               <ButtonLink className="min-w-[12rem]" href="#kontakt">
                 {siteContent.hero.primaryCta}
               </ButtonLink>
-              <ButtonLink href="#sluzby" variant="ghost">
-                {siteContent.hero.secondaryCta}
-              </ButtonLink>
             </div>
 
-            <div className="mt-10 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            <p className="mt-4 text-sm font-medium text-[var(--color-muted)]">
+              {siteContent.hero.offerNote}
+            </p>
+
+            <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {siteContent.hero.highlights.map((item, index) => (
                 <div
                   key={item}

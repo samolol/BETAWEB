@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 export function AboutSection() {
   return (
-    <section className="py-20 sm:py-24">
+    <section id="o-mne" className="scroll-mt-28 py-20 sm:py-24">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[minmax(340px,0.9fr)_minmax(0,1.1fr)] lg:items-center">
           <div className="relative overflow-hidden rounded-[2.4rem] border border-[var(--color-line)] bg-white/84 shadow-[var(--shadow-card)]">
@@ -34,26 +34,6 @@ export function AboutSection() {
               ))}
             </div>
           </div>
-        </div>
-
-        <div className="mt-10 rounded-[2.2rem] border border-[var(--color-line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(241,248,246,0.72))] p-7 shadow-[var(--shadow-soft)] sm:p-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
-            Na čem si zakládám
-          </p>
-          <ul className="mt-6 grid gap-4 md:grid-cols-3">
-            {siteContent.about.points.map((point, index) => (
-              <li
-                key={point}
-                className={`rounded-[1.5rem] border px-5 py-4 text-sm leading-7 text-[var(--color-text)] shadow-[var(--shadow-soft)] ${
-                  index === 1
-                    ? "border-[rgba(203,150,100,0.18)] bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(248,239,228,0.92))]"
-                    : "border-[var(--color-line)] bg-white/82"
-                }`}
-              >
-                {point}
-              </li>
-            ))}
-          </ul>
         </div>
       </Container>
     </section>

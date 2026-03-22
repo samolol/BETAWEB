@@ -4,12 +4,12 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 export function BenefitsSection() {
   return (
-    <section id="proc-ja" className="scroll-mt-28 py-20 sm:py-24">
+    <section id="reseni" className="scroll-mt-28 py-20 sm:py-24">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-start">
           <div className="rounded-[2.2rem] border border-[var(--color-line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.84),rgba(241,248,246,0.76))] p-7 shadow-[var(--shadow-soft)] sm:p-8">
             <SectionHeading
-              eyebrow="Proč si vybrat mě"
+              eyebrow="Řešení"
               title={siteContent.benefits.title}
               description={siteContent.benefits.description}
             />

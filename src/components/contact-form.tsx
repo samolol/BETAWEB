@@ -259,6 +259,10 @@ export function ContactForm() {
         {isSubmitting ? "Odesílám..." : siteContent.contact.cta}
       </button>
 
+      <p className="mt-3 text-center text-sm text-[var(--color-muted)]">
+        {siteContent.contact.responseNote}
+      </p>
+
       <div aria-live="polite" className="mt-4 min-h-6 text-sm">
         {submissionState.type === "success" ? (
           <p className="rounded-[1.4rem] bg-[rgba(31,123,112,0.1)] px-4 py-3 text-[var(--color-accent-strong)]">

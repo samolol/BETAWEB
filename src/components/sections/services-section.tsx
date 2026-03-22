@@ -4,11 +4,11 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 export function ServicesSection() {
   return (
-    <section id="sluzby" className="scroll-mt-28 py-20 sm:py-24">
+    <section id="problem" className="scroll-mt-28 py-20 sm:py-24">
       <Container>
         <div className="rounded-[2.5rem] border border-[var(--color-line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(246,238,228,0.82))] px-6 py-10 shadow-[var(--shadow-card)] sm:px-8 lg:px-10 lg:py-12">
           <SectionHeading
-            eyebrow="Služby"
+            eyebrow="Problém"
             title={siteContent.services.title}
             description={siteContent.services.description}
           />
