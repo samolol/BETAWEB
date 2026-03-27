@@ -141,7 +141,7 @@ export function ContactForm() {
 
   return (
     <form
-      className="rounded-[2.2rem] border border-[var(--color-line)] bg-white/84 p-6 shadow-[var(--shadow-float)] backdrop-blur sm:p-8"
+      className="surface-glow rounded-[2.2rem] border border-[var(--color-line)] bg-white/84 p-6 shadow-[var(--shadow-float)] backdrop-blur transition-[box-shadow,border-color] duration-300 ease-[var(--ease-standard)] hover:border-[rgba(31,123,112,0.14)] hover:shadow-[0_30px_72px_rgba(63,47,31,0.16)] sm:p-8"
       onSubmit={handleSubmit(onSubmit)}
       noValidate
     >
@@ -155,7 +155,7 @@ export function ContactForm() {
           </label>
           <input
             id="name"
-            className="mt-2 w-full rounded-[1.35rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.9)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus:border-[rgba(31,123,112,0.34)] focus:bg-white focus:ring-4 focus:ring-[rgba(31,123,112,0.1)]"
+            className="mt-2 w-full rounded-[1.35rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.9)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition-[border-color,background-color,box-shadow,transform] duration-300 ease-[var(--ease-standard)] focus:border-[rgba(31,123,112,0.34)] focus:bg-white focus:ring-4 focus:ring-[rgba(31,123,112,0.1)]"
             placeholder={siteContent.contact.placeholders.name}
             {...register("name")}
           />
@@ -172,7 +172,7 @@ export function ContactForm() {
           <input
             id="email"
             type="email"
-            className="mt-2 w-full rounded-[1.35rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.9)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus:border-[rgba(31,123,112,0.34)] focus:bg-white focus:ring-4 focus:ring-[rgba(31,123,112,0.1)]"
+            className="mt-2 w-full rounded-[1.35rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.9)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition-[border-color,background-color,box-shadow,transform] duration-300 ease-[var(--ease-standard)] focus:border-[rgba(31,123,112,0.34)] focus:bg-white focus:ring-4 focus:ring-[rgba(31,123,112,0.1)]"
             placeholder={siteContent.contact.placeholders.email}
             {...register("email")}
           />
@@ -189,7 +189,7 @@ export function ContactForm() {
         </label>
         <input
           id="phone"
-          className="mt-2 w-full rounded-[1.35rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.9)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus:border-[rgba(31,123,112,0.34)] focus:bg-white focus:ring-4 focus:ring-[rgba(31,123,112,0.1)]"
+          className="mt-2 w-full rounded-[1.35rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.9)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition-[border-color,background-color,box-shadow,transform] duration-300 ease-[var(--ease-standard)] focus:border-[rgba(31,123,112,0.34)] focus:bg-white focus:ring-4 focus:ring-[rgba(31,123,112,0.1)]"
           placeholder={siteContent.contact.placeholders.phone}
           {...register("phone")}
         />
@@ -206,7 +206,7 @@ export function ContactForm() {
         <textarea
           id="message"
           rows={6}
-          className="mt-2 w-full rounded-[1.6rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.9)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus:border-[rgba(31,123,112,0.34)] focus:bg-white focus:ring-4 focus:ring-[rgba(31,123,112,0.1)]"
+          className="mt-2 w-full rounded-[1.6rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.9)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition-[border-color,background-color,box-shadow,transform] duration-300 ease-[var(--ease-standard)] focus:border-[rgba(31,123,112,0.34)] focus:bg-white focus:ring-4 focus:ring-[rgba(31,123,112,0.1)]"
           placeholder={siteContent.contact.placeholders.message}
           {...register("message")}
         />
@@ -214,7 +214,7 @@ export function ContactForm() {
       </div>
 
       <div className="mt-5">
-        <div className="rounded-[1.35rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.72)] px-4 py-3">
+        <div className="rounded-[1.35rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.72)] px-4 py-3 transition-[border-color,box-shadow,background-color] duration-300 ease-[var(--ease-standard)] hover:border-[rgba(31,123,112,0.16)] hover:bg-white/80">
           <div className="flex items-start gap-3">
             <input
               id="privacyConsent"
@@ -227,7 +227,7 @@ export function ContactForm() {
                 {privacy.checkboxLabelPrefix}{" "}
               </label>
               <Link
-                className="font-medium text-[var(--color-text)] underline decoration-[rgba(31,123,112,0.35)] underline-offset-4 transition hover:text-[var(--color-accent)]"
+                className="interactive-link font-medium text-[var(--color-text)] hover:text-[var(--color-accent)]"
                 href={privacy.href}
                 target="_blank"
                 rel="noreferrer"
@@ -253,7 +253,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="mt-6 inline-flex w-full items-center justify-center rounded-full border border-white/20 bg-[linear-gradient(135deg,var(--color-accent),#328b80)] px-5 py-3 text-sm font-semibold text-white shadow-[0_18px_44px_rgba(31,123,112,0.24)] ring-1 ring-white/12 transition hover:-translate-y-0.5 hover:shadow-[0_24px_54px_rgba(31,123,112,0.28)] hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)] disabled:cursor-not-allowed disabled:opacity-70"
+        className="mt-6 inline-flex w-full items-center justify-center rounded-full border border-white/20 bg-[linear-gradient(135deg,var(--color-accent),#328b80_58%,#63a89f)] px-5 py-3 text-sm font-semibold text-white shadow-[0_18px_44px_rgba(31,123,112,0.24)] ring-1 ring-white/12 transition-[transform,box-shadow,filter] duration-300 ease-[var(--ease-standard)] hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_28px_64px_rgba(31,123,112,0.3)] hover:brightness-[1.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)] disabled:cursor-not-allowed disabled:opacity-70"
         disabled={isSubmitting}
       >
         {isSubmitting ? "Odesílám..." : siteContent.contact.cta}

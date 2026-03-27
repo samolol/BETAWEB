@@ -12,18 +12,18 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 pt-3">
       <Container>
-        <div className="rounded-full border border-[var(--color-line)] bg-[color:var(--color-surface-elevated)]/84 px-4 py-3 shadow-[var(--shadow-soft)] backdrop-blur-xl">
+        <div className="rounded-full border border-[var(--color-line)] bg-[color:var(--color-surface-elevated)]/88 px-4 py-3 shadow-[var(--shadow-soft)] backdrop-blur-xl transition-[box-shadow,border-color,background-color] duration-300 ease-[var(--ease-standard)] hover:border-[rgba(31,123,112,0.14)] hover:shadow-[var(--shadow-float)]">
           <div className="flex items-center justify-between gap-6">
             <a
-              className="flex items-center gap-3"
+              className="group flex items-center gap-3"
               href="#top"
               aria-label="Přejít na začátek stránky"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-[linear-gradient(135deg,var(--color-accent),#4d9388)] text-sm font-bold text-white shadow-[0_12px_26px_rgba(31,123,112,0.22)]">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-[linear-gradient(135deg,var(--color-accent),#4d9388)] text-sm font-bold text-white shadow-[0_12px_26px_rgba(31,123,112,0.22)] transition duration-300 ease-[var(--ease-standard)] group-hover:scale-[1.04] group-hover:shadow-[0_18px_34px_rgba(31,123,112,0.28)]">
                 W
               </span>
               <span>
-                <span className="block text-sm font-semibold text-[var(--color-text)]">
+                <span className="block text-sm font-semibold text-[var(--color-text)] transition duration-300 ease-[var(--ease-standard)] group-hover:text-[var(--color-accent)]">
                   {siteContent.brand.name}
                 </span>
                 <span className="block text-xs text-[var(--color-muted)]">
@@ -36,7 +36,7 @@ export function SiteHeader() {
               {siteContent.navigation.map((item) => (
                 <a
                   key={item.href}
-                  className="text-sm font-medium text-[var(--color-muted)] transition hover:text-[var(--color-text)]"
+                  className="interactive-link text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-text)]"
                   href={item.href}
                 >
                   {item.label}
@@ -52,7 +52,7 @@ export function SiteHeader() {
 
             <button
               type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-line)] bg-white/88 shadow-[var(--shadow-soft)] lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-line)] bg-white/88 shadow-[var(--shadow-soft)] transition-[transform,box-shadow,border-color] duration-300 ease-[var(--ease-standard)] hover:-translate-y-0.5 hover:border-[rgba(31,123,112,0.18)] hover:shadow-[var(--shadow-float)] lg:hidden"
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"
               aria-label={isOpen ? "Zavřít menu" : "Otevřít menu"}
@@ -82,7 +82,7 @@ export function SiteHeader() {
                 {siteContent.navigation.map((item) => (
                   <a
                     key={item.href}
-                    className="text-base font-medium text-[var(--color-text)]"
+                    className="interactive-link text-base font-medium text-[var(--color-text)]"
                     href={item.href}
                     onClick={() => setIsOpen(false)}
                   >
