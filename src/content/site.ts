@@ -187,12 +187,13 @@ export const siteContent: SiteContent = {
     { label: "Kontakt", href: "#kontakt" },
   ],
   hero: {
-    title: "Web, který vám přivede zákazníky — ne jen vizitku.",
-    description: "Rychlé řešení pro malé firmy, které chtějí víc poptávek.",
-    primaryCta: "Nezávazná poptávka",
+    title: "Web, který Vám pomůže získat víc poptávek.",
+    description:
+      "Pro malé firmy a služby, které chtějí působit důvěryhodně a usnadnit lidem kontakt.",
+    primaryCta: "Napsat mi",
     secondaryCta: "Zjistit více",
-    offerNote: "Odpovím do 24 hodin",
-    highlights: ["Jasná nabídka", "Víc poptávek", "Bez zbytečností"],
+    offerNote: "Osobně, jednoduše a bez zbytečných koleček.",
+    highlights: ["Jasná nabídka", "Přímá spolupráce", "Víc poptávek"],
     panelTitle: "Co od webu potřebujete nejčastěji?",
     panelItems: [
       "Aby návštěvník rychle pochopil, co nabízíte.",
@@ -201,85 +202,79 @@ export const siteContent: SiteContent = {
     ],
   },
   services: {
-    title: "Proč web často nefunguje",
+    title: "Proč web často nepřivede ani jednu zprávu",
     description:
-      "Návštěvník se musí během pár sekund zorientovat. Jinak odejde bez kontaktu.",
+      "Když není hned jasné, co děláte a proč se ozvat, lidé jdou dál.",
     items: [
       {
         title: "Nejasná nabídka",
-        description:
-          "Lidé rychle nepochopí, co nabízíte a proč vás oslovit.",
+        description: "Návštěvník rychle nepochopí, co vlastně nabízíte.",
       },
       {
         title: "Slabá důvěra",
-        description:
-          "Zastaralý nebo chaotický web snižuje šanci, že se někdo ozve.",
+        description: "Chaotický nebo zastaralý web snižuje chuť se ozvat.",
       },
       {
         title: "Bez jasné akce",
-        description:
-          "Když web nevede k poptávce, návštěvník jen projde a zmizí.",
+        description: "Když web nevede ke kontaktu, návštěvník jen odejde.",
       },
     ],
   },
   benefits: {
-    title: "Co dostanete",
+    title: "Co se změní",
     description:
-      "Jednoduchý web, který návštěvníka rychle nasměruje k poptávce.",
+      "Jednoduchý web, ve kterém se lidé rychle zorientují a snáz se ozvou.",
     items: [
       {
         title: "Jasnou strukturu",
-        description:
-          "Hned je vidět, co nabízíte a proč vás oslovit.",
+        description: "Hned je jasné, co nabízíte a proč se ozvat.",
       },
       {
         title: "Důvěryhodný vzhled",
         description:
-          "Moderní a přehledný web, který funguje na mobilu i desktopu.",
+          "Web působí dobře na mobilu i desktopu a budí větší důvěru.",
       },
       {
         title: "Jasnou výzvu k akci",
-        description:
-          "Návštěvník ví, kam kliknout a jak vás kontaktovat.",
+        description: "Lidé ví, co udělat dál a jak Vám napsat.",
       },
     ],
   },
   process: {
     title: "Jak probíhá spolupráce",
-    description: "Stručně, přehledně a bez zbytečných koleček.",
+    description: "Jednoduše, přímo a bez zbytečného přeposílání.",
     steps: [
       {
         title: "Domluvíme zadání",
-        description: "Krátce si ujasníme cíl, obsah a rozsah.",
+        description: "Krátce si ujasníme, co má web splnit.",
       },
       {
         title: "Připravím web",
-        description: "Navrhnu strukturu a postavím web na míru vašemu oboru.",
+        description: "Navrhnu strukturu a postavím web pro Váš obor.",
       },
       {
         title: "Doladíme a spustíme",
-        description: "Zapracujeme připomínky a web pustíme ven.",
+        description: "Doladíme detaily a web pustíme ven.",
       },
     ],
   },
   showcase: {
     title: "Ukázky webů",
-    description:
-      "Tři různé styly pro firmy, gastro a lokální služby.",
+    description: "Tři různé styly pro firmy, gastro a lokální služby.",
     items: [
       {
         title: "Firemní web",
-        subtitle: "Čistá prezentace služby s důrazem na důvěru.",
+        subtitle: "Čistá prezentace služby pro lepší první dojem.",
         demoUrl: "https://samolol.github.io/DEMO1/",
       },
       {
         title: "Gastro web",
-        subtitle: "Atmosféra, menu a jasná cesta k rezervaci.",
+        subtitle: "Atmosféra, menu a jasná cesta k více rezervacím.",
         demoUrl: "https://samolol.github.io/DEMO2/",
       },
       {
         title: "Web pro autoservis",
-        subtitle: "Praktický web pro lokální službu a rychlý kontakt.",
+        subtitle: "Praktický web pro lokální službu a rychlejší kontakt.",
         demoUrl: "https://samolol.github.io/DEMO3/",
       },
     ],
@@ -287,8 +282,9 @@ export const siteContent: SiteContent = {
   pricing: {
     title: "Balíčky a orientační ceny",
     description:
-      "Vyberte si rozsah, který dává smysl pro váš projekt. Přesná nabídka se vždy odvíjí od konkrétního zadání.",
-    note: "Uvedené ceny jsou orientační. Přesnou nabídku připravím podle rozsahu, obsahu a případných funkcí.",
+      "Vyberte si rozsah, který dává smysl pro Váš projekt. Přesná nabídka se vždy odvíjí od konkrétního zadání.",
+    note:
+      "Uvedené ceny jsou orientační. Přesnou nabídku připravím podle rozsahu, obsahu a případných funkcí.",
     plans: [
       {
         name: "Starter web",
@@ -335,15 +331,11 @@ export const siteContent: SiteContent = {
   about: {
     title: "O mně",
     paragraphs: [
-      "Tvořím weby na míru pro malé firmy a služby.",
-      "Stavím je tak, aby byly přehledné, důvěryhodné a vedly ke kontaktu.",
-      "Komunikuji stručně a řeším jen to, co má pro váš web smysl.",
+      "Nejsem agentura. Na webu pracuji přímo s Vámi.",
+      "Komunikace je rychlá, jednoduchá a bez zbytečného přeposílání mezi lidmi.",
+      "Řešíme jen to, co Vašemu webu opravdu pomůže.",
     ],
-    points: [
-      "Osobní spolupráce",
-      "Praktický přístup",
-      "Web, který se dá dál rozvíjet",
-    ],
+    points: ["Přímo se mnou", "Bez zbytečností", "Web, který dává smysl"],
   },
   faq: {
     title: "Často kladené dotazy",
@@ -378,20 +370,20 @@ export const siteContent: SiteContent = {
     ],
   },
   contact: {
-    title: "Nezávazná poptávka",
+    title: "Napište mi",
     description:
-      "Napište pár vět o tom, co potřebujete. Ozvu se zpět a navrhnu další krok.",
-    cta: "Nezávazná poptávka",
-    responseNote: "od 5 000 Kč",
+      "Stačí pár vět o tom, co potřebujete. Ozvu se co nejdříve a domluvíme další krok.",
+    cta: "Napsat mi",
+    responseNote: "Stačí pár vět. Odpovím do 24 hodin. Žádný spam.",
     email: "poptavky@webnamiru.online",
     phone: "+420 725 161 471",
     ico: "IČO: 24638161",
-    availability: "Online spolupráce pro klienty z celé ČR",
+    availability: "Přímo se mnou, online pro klienty z celé ČR",
     placeholders: {
-      name: "Jak se jmenujete",
-      email: "vas@email.cz",
-      phone: "+420 777 000 000",
-      message: "Stručně popište, co potřebujete a jaký má web splnit cíl.",
+      name: "Jak Vám mám říkat",
+      email: "Kam se Vám mám ozvat",
+      phone: "Telefon, pokud chcete",
+      message: "Stačí pár vět o tom, co potřebujete.",
     },
   },
   legal: {
