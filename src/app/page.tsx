@@ -1,4 +1,5 @@
 import { SiteFooter } from "@/components/layout/site-footer";
+import { siteContent } from "@/content/site";
 import { SiteHeader } from "@/components/layout/site-header";
 import { AboutSection } from "@/components/sections/about-section";
 import { BenefitsSection } from "@/components/sections/benefits-section";
@@ -21,7 +22,11 @@ export default function Home() {
         <ProcessSection />
         <AboutSection />
         <ContactSection />
-        <FaqSection />
+        <FaqSection
+          title={siteContent.faq.title}
+          description={siteContent.faq.description}
+          items={siteContent.faq.items}
+        />
       </main>
       <SiteFooter />
     </>
