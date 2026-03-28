@@ -343,34 +343,59 @@ export const siteContent: SiteContent = {
     ],
   },
   faq: {
-    title: "Často kladené dotazy",
+    title: "Často kladené otázky",
     description:
-      "To nejdůležitější k průběhu spolupráce, rozsahu dodání a následné podpoře.",
+      "To nejdůležitější k průběhu spolupráce a správě webu.",
     items: [
       {
-        question: "Jak dlouho trvá vytvoření webu?",
+        question: "Jak rychle můžu mít hotový web?",
         answer:
-          "Záleží na rozsahu. Jednodušší prezentační web může být hotový během několika týdnů, větší řešení trvá déle podle obsahu a připomínek.",
+          "Záleží na rozsahu zadání, ale menší web může být hotový poměrně rychle. Konkrétní termín si řekneme hned na začátku.",
       },
       {
-        question: "Co budeš ode mě potřebovat?",
+        question: "Potřebuji mít hotový obsah předem?",
         answer:
-          "Ideálně základní informace o službách, cílové skupině, případné texty, logo a představu o cíli webu. Pokud vše ještě nemáte, pomohu nastavit rozumný základ.",
+          "Nemusíte mít všechno připravené. Stačí základní informace a společně doladíme, co bude potřeba doplnit.",
       },
       {
-        question: "Děláš i úpravy starého webu?",
+        question: "Komunikujeme jen online nebo i osobně?",
         answer:
-          "Ano. Pokud dává větší smysl upravit nebo redesignovat stávající web než stavět nový, navrhnu vhodný postup.",
+          "Většinu spolupráce zvládneme pohodlně online. Pokud dává osobní schůzka smysl, můžeme se na ní domluvit.",
       },
       {
-        question: "Je v ceně i mobilní verze?",
+        question: "Co když budu potřebovat úpravy po spuštění?",
         answer:
-          "Ano. Web je od začátku navržený tak, aby fungoval a dobře vypadal na mobilu, tabletu i desktopu.",
+          "S webem vám pomůžu i po spuštění. Menší úpravy nebo další rozvoj můžeme řešit průběžně podle potřeby.",
       },
       {
-        question: "Pomůžeš i po spuštění webu?",
+        question: "Je to agentura nebo pracuji přímo s vámi?",
         answer:
-          "Ano. Po dokončení můžeme navázat další správou, úpravami obsahu nebo technickou podporou podle potřeby.",
+          "Spolupracujete přímo se mnou. Díky tomu je komunikace rychlá, přímá a bez zbytečného přeposílání.",
+      },
+      {
+        question: "Mohu web rozšířit o další funkce později?",
+        answer:
+          "Ano. Web může vzniknout v jednodušší verzi a další funkce se dají doplnit později podle toho, jak poroste vaše potřeba.",
+      },
+      {
+        question: "Jak probíhá placení?",
+        answer:
+          "Obvykle se hradí záloha před začátkem práce a doplatek před předáním hotového webu. Vše si řekneme předem jasně a bez překvapení.",
+      },
+      {
+        question: "Poskytujete i školení nebo návod k obsahu?",
+        answer:
+          "Ano. Pokud budete chtít, ukážu vám, jak s obsahem pracovat, nebo připravím jednoduchý návod.",
+      },
+      {
+        question: "Mohu měnit texty a obrázky sám?",
+        answer:
+          "Podle zvoleného řešení ano. Pokud je to pro vás důležité, nastavíme web tak, aby se s obsahem pracovalo co nejjednodušeji.",
+      },
+      {
+        question: "Musím mít vlastní doménu a hosting?",
+        answer:
+          "Ideálně ano, ale pokud si s tím nejste jistí, pomůžu vám vybrat vhodné řešení a vysvětlím, co je potřeba zařídit.",
       },
     ],
   },
