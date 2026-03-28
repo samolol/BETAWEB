@@ -17,55 +17,27 @@ export type FaqSectionProps = {
   description?: string;
 };
 
-const VISIBLE_ITEMS_COUNT = 2;
-
-function FaqCard({
-  item,
-  highlighted = false,
-}: {
-  item: FaqSectionItem;
-  highlighted?: boolean;
-}) {
-  return (
-    <article
-      className={`interactive-card hover-tilt-soft hover-sheen rounded-[1.7rem] border p-6 shadow-[var(--shadow-soft)] transition-[transform,box-shadow,border-color,background-color] duration-300 ease-[var(--ease-standard)] ${
-        highlighted
-          ? "glass-panel border-[rgba(31,123,112,0.14)]"
-          : "border-[var(--color-line)] bg-white/82"
-      }`}
-    >
-      <h3 className="text-lg font-semibold text-[var(--color-text)]">
-        {item.question}
-      </h3>
-      <p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--color-muted)]">
-        {item.answer}
-      </p>
-    </article>
-  );
-}
-
 export function FaqSection({
   title,
   items,
   description,
 }: FaqSectionProps) {
-  const [expanded, setExpanded] = useState(false);
-  const contentId = useId();
-  const hiddenContentRef = useRef<HTMLDivElement | null>(null);
-  const [hiddenHeight, setHiddenHeight] = useState(0);
-
-  const visibleItems = items.slice(0, VISIBLE_ITEMS_COUNT);
-  const hiddenItems = items.slice(VISIBLE_ITEMS_COUNT);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const baseId = useId();
+  const answerRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const [answerHeights, setAnswerHeights] = useState<number[]>([]);
 
   useEffect(() => {
-    function updateHeight() {
-      setHiddenHeight(hiddenContentRef.current?.scrollHeight ?? 0);
+    function updateHeights() {
+      setAnswerHeights(
+        items.map((_, index) => answerRefs.current[index]?.scrollHeight ?? 0),
+      );
     }
 
-    updateHeight();
-    window.addEventListener("resize", updateHeight);
+    updateHeights();
+    window.addEventListener("resize", updateHeights);
 
-    return () => window.removeEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeights);
   }, [items]);
 
   return (
@@ -80,62 +52,74 @@ export function FaqSection({
         </Reveal>
 
         <div className="mt-10 space-y-4">
-          {visibleItems.map((item, index) => (
-            <Reveal
-              key={item.question}
-              delayMs={index * 70}
-              rotateDeg={index % 2 === 0 ? 0.6 : -0.6}
-            >
-              <FaqCard item={item} highlighted={index === 0} />
-            </Reveal>
-          ))}
-        </div>
+          {items.map((item, index) => {
+            const isOpen = openIndex === index;
+            const panelId = `${baseId}-panel-${index}`;
+            const triggerId = `${baseId}-trigger-${index}`;
 
-        {hiddenItems.length > 0 ? (
-          <>
-            <div
-              id={contentId}
-              className="overflow-hidden transition-[max-height] duration-300 ease-[var(--ease-standard)]"
-              style={{ maxHeight: expanded ? `${hiddenHeight}px` : "0px" }}
-              aria-hidden={!expanded}
-            >
-              <div
-                ref={hiddenContentRef}
-                className={`space-y-4 pt-4 transition-[opacity,transform] duration-300 ease-[var(--ease-standard)] ${
-                  expanded ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
-                }`}
+            return (
+              <Reveal
+                key={item.question}
+                delayMs={index * 45}
+                rotateDeg={index % 2 === 0 ? 0.5 : -0.5}
               >
-                {hiddenItems.map((item, index) => (
-                  <article
-                    key={item.question}
-                    className="transition-[opacity,transform] duration-300 ease-[var(--ease-standard)]"
-                    style={{
-                      opacity: expanded ? 1 : 0,
-                      transform: expanded ? "translateY(0)" : "translateY(10px)",
-                      transitionDelay: expanded ? `${index * 45}ms` : "0ms",
-                    }}
-                  >
-                    <FaqCard item={item} highlighted={index === 1} />
-                  </article>
-                ))}
-              </div>
-            </div>
-
-            <Reveal delayMs={120}>
-              <div className="mt-6 flex justify-start">
-                <button
-                  type="button"
-                  className="hover-sheen inline-flex items-center justify-center rounded-full border border-[rgba(31,123,112,0.18)] bg-white/78 px-5 py-3 text-sm font-semibold text-[var(--color-text)] shadow-[var(--shadow-soft)] transition-[transform,box-shadow,background-color,color,border-color] duration-300 ease-[var(--ease-standard)] hover:-translate-y-1 hover:border-[rgba(31,123,112,0.24)] hover:bg-[linear-gradient(135deg,rgba(240,253,250,0.9),rgba(240,249,255,0.92))] hover:shadow-[var(--shadow-float)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
-                  aria-expanded={expanded}
-                  aria-controls={contentId}
-                  onClick={() => setExpanded((value) => !value)}
+                <article
+                  className={`interactive-card hover-tilt-soft hover-sheen rounded-[1.7rem] border shadow-[var(--shadow-soft)] transition-[transform,box-shadow,border-color,background-color] duration-300 ease-[var(--ease-standard)] ${
+                    index === 0 || index === 3
+                      ? "glass-panel border-[rgba(31,123,112,0.14)]"
+                      : "border-[var(--color-line)] bg-white/82"
+                  }`}
                 >
-                  {expanded ? "Skrýt FAQ" : "Rozbalit FAQ"}
-                </button>
-              </div>
-            </Reveal>
-          </>
-        ) : null}
+                  <h3>
+                    <button
+                      id={triggerId}
+                      type="button"
+                      className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left text-lg font-semibold text-[var(--color-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-inset"
+                      aria-expanded={isOpen}
+                      aria-controls={panelId}
+                      onClick={() =>
+                        setOpenIndex((current) => (current === index ? null : index))
+                      }
+                    >
+                      <span>{item.question}</span>
+                      <span
+                        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--color-line)] bg-white/74 text-xl leading-none text-[var(--color-accent)] transition-[transform,background-color,border-color] duration-300 ease-[var(--ease-standard)] ${
+                          isOpen
+                            ? "rotate-45 border-[rgba(31,123,112,0.2)] bg-[rgba(240,253,250,0.92)]"
+                            : ""
+                        }`}
+                        aria-hidden="true"
+                      >
+                        +
+                      </span>
+                    </button>
+                  </h3>
+
+                  <div
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={triggerId}
+                    className="overflow-hidden transition-[max-height] duration-300 ease-[var(--ease-standard)]"
+                    style={{ maxHeight: isOpen ? `${answerHeights[index] ?? 0}px` : "0px" }}
+                  >
+                    <div
+                      ref={(node) => {
+                        answerRefs.current[index] = node;
+                      }}
+                      className={`px-6 pb-5 transition-[opacity,transform] duration-300 ease-[var(--ease-standard)] ${
+                        isOpen ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
+                      }`}
+                    >
+                      <p className="border-t border-[var(--color-line)] pt-4 text-sm leading-7 text-[var(--color-muted)]">
+                        {item.answer}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
       </Container>
     </section>
   );
