@@ -87,9 +87,13 @@ export function HeroSection() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden pb-22 pt-12 sm:pb-24 sm:pt-18 lg:pb-30 lg:pt-22"
+      className="bg-warm-gradient relative overflow-hidden pb-22 pt-12 sm:pb-24 sm:pt-18 lg:pb-30 lg:pt-22"
     >
-      <div className="absolute inset-x-0 top-0 -z-10 h-[44rem] bg-[radial-gradient(circle_at_top_left,rgba(31,123,112,0.24),transparent_30%),radial-gradient(circle_at_78%_12%,rgba(203,150,100,0.28),transparent_24%),radial-gradient(circle_at_62%_32%,rgba(125,185,208,0.18),transparent_18%),linear-gradient(180deg,rgba(255,255,255,0.82),transparent)]" />
+      <div className="absolute inset-x-0 top-0 -z-10 h-[44rem] bg-[radial-gradient(circle_at_top_left,rgba(31,123,112,0.2),transparent_32%),radial-gradient(circle_at_78%_12%,rgba(203,150,100,0.18),transparent_24%),radial-gradient(circle_at_62%_32%,rgba(125,185,208,0.16),transparent_18%),linear-gradient(180deg,rgba(255,255,255,0.7),transparent)]" />
+      <div className="bg-glow ambient-drift absolute -left-18 top-4 -z-10 h-[22rem] w-[22rem] rounded-full bg-[rgba(20,184,166,0.28)]" />
+      <div className="bg-glow ambient-drift absolute right-[10%] top-8 -z-10 h-[18rem] w-[18rem] rounded-full bg-[rgba(56,189,248,0.22)] [animation-delay:-6s]" />
+      <div className="bg-glow ambient-drift absolute bottom-8 left-[38%] -z-10 h-[16rem] w-[16rem] rounded-full bg-[rgba(251,146,60,0.18)] [animation-delay:-11s]" />
+      <div className="bg-dot-pattern absolute inset-x-0 top-0 -z-10 h-[30rem]" />
 
       <Container>
         <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(440px,1fr)] lg:items-center">
@@ -139,9 +143,35 @@ export function HeroSection() {
               onPointerMove={handlePointerMove}
               onPointerLeave={resetParallax}
             >
-              <div className="accent-orb -left-8 top-12 h-44 w-44 bg-[rgba(31,123,112,0.18)]" />
-              <div className="accent-orb -right-2 bottom-10 h-48 w-48 bg-[rgba(203,150,100,0.18)]" />
-              <div className="accent-orb right-[20%] top-[16%] h-36 w-36 bg-[rgba(125,185,208,0.16)]" />
+              <div className="absolute inset-0 -z-10 opacity-60">
+                <svg
+                  viewBox="0 0 640 640"
+                  className="absolute left-[6%] top-[8%] h-[28rem] w-[28rem] text-[rgba(20,184,166,0.18)]"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M177.5 83.5C264.5 54.5 373 64 447 125.5C528 193 565 304 532 397.5C498 495 394 568.5 282 549.5C170 530.5 61.5 418.5 63 305C64.5 219 99.5 109.5 177.5 83.5Z"
+                    fill="currentColor"
+                  />
+                </svg>
+                <svg
+                  viewBox="0 0 720 220"
+                  className="absolute right-[2%] bottom-[10%] h-36 w-[24rem] text-[rgba(56,189,248,0.16)]"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M11 129.5C72.5 86.5 132 78 198 100C270.5 124 321 181 393.5 194.5C484.5 211.5 569 156 640.5 122.5C670.5 108.5 697 101.5 709 98"
+                    stroke="currentColor"
+                    strokeWidth="32"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </div>
+              <div className="accent-orb ambient-drift -left-8 top-12 h-44 w-44 bg-[rgba(31,123,112,0.18)]" />
+              <div className="accent-orb ambient-drift -right-2 bottom-10 h-48 w-48 bg-[rgba(203,150,100,0.18)] [animation-delay:-7s]" />
+              <div className="accent-orb ambient-drift right-[20%] top-[16%] h-36 w-36 bg-[rgba(125,185,208,0.16)] [animation-delay:-12s]" />
 
               <div
                 className="parallax-layer hero-sheen interactive-card interactive-card-premium absolute left-0 top-7 z-20 w-[72%] overflow-hidden rounded-[2.3rem] border border-white/60 bg-white/88 shadow-[var(--shadow-card)]"

@@ -16,7 +16,10 @@ export function PricingSection() {
           />
         </Reveal>
 
-        <div className="mt-10 grid gap-5 xl:grid-cols-3 xl:items-start">
+        <div className="section-shell section-tint-neutral relative mt-10 rounded-[2.6rem] border border-[var(--color-line)] px-5 py-6 shadow-[var(--shadow-card)] sm:px-6 lg:px-8">
+          <div className="bg-glow ambient-drift absolute -left-14 top-10 h-40 w-40 rounded-full bg-[rgba(20,184,166,0.12)]" />
+          <div className="bg-glow ambient-drift absolute right-0 top-0 h-32 w-32 rounded-full bg-[rgba(56,189,248,0.1)] [animation-delay:-10s]" />
+          <div className="mt-2 grid gap-5 xl:grid-cols-3 xl:items-start">
           {siteContent.pricing.plans.map((plan, index) => (
             <Reveal
               key={plan.name}
@@ -29,7 +32,7 @@ export function PricingSection() {
                     ? "interactive-card-premium glass-panel xl:-translate-y-5 border-[rgba(31,123,112,0.22)] shadow-[var(--shadow-card)]"
                     : index === 2
                       ? "section-tint-sky border-[rgba(125,185,208,0.16)] shadow-[var(--shadow-soft)]"
-                      : "bg-white/82 shadow-[var(--shadow-soft)]"
+                      : "glass-panel border-[var(--color-line)] shadow-[var(--shadow-soft)]"
                 }`}
               >
                 <div className="flex items-start justify-between gap-4">
@@ -69,6 +72,7 @@ export function PricingSection() {
               </article>
             </Reveal>
           ))}
+          </div>
         </div>
 
         <Reveal delayMs={90}>

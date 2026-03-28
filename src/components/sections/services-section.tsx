@@ -7,7 +7,9 @@ export function ServicesSection() {
   return (
     <section id="problem" className="scroll-mt-28 py-20 sm:py-24">
       <Container>
-        <div className="section-shell section-tint-warm rounded-[2.5rem] border border-[var(--color-line)] px-6 py-10 shadow-[var(--shadow-card)] sm:px-8 lg:px-10 lg:py-12">
+        <div className="section-shell section-tint-mint rounded-[2.5rem] border border-[var(--color-line)] px-6 py-10 shadow-[var(--shadow-card)] sm:px-8 lg:px-10 lg:py-12">
+          <div className="bg-glow ambient-drift absolute -left-16 top-10 h-48 w-48 rounded-full bg-[rgba(20,184,166,0.12)]" />
+          <div className="bg-glow ambient-drift absolute right-6 top-4 h-36 w-36 rounded-full bg-[rgba(56,189,248,0.1)] [animation-delay:-8s]" />
           <Reveal>
             <SectionHeading
               eyebrow="Problém"
@@ -25,7 +27,7 @@ export function ServicesSection() {
                       ? "glass-panel border-[rgba(31,123,112,0.16)] shadow-[var(--shadow-card)]"
                       : index === 2
                         ? "section-tint-warm border-[rgba(203,150,100,0.18)] shadow-[var(--shadow-soft)]"
-                        : "bg-white/82 shadow-[var(--shadow-soft)]"
+                        : "section-tint-sky border-[rgba(125,185,208,0.14)] shadow-[var(--shadow-soft)]"
                   }`}
                 >
                   <span className="micro-badge mb-6 text-[var(--color-accent)]">

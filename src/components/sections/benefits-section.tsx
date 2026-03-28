@@ -11,7 +11,7 @@ export function BenefitsSection() {
       <Container>
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-start">
           <Reveal>
-            <div className="glass-panel section-tint-mint rounded-[2.2rem] border border-[var(--color-line)] p-7 shadow-[var(--shadow-soft)] sm:p-8">
+            <div className="glass-panel section-tint-sky rounded-[2.2rem] border border-[var(--color-line)] p-7 shadow-[var(--shadow-soft)] sm:p-8">
               <SectionHeading
                 eyebrow="Řešení"
                 title={siteContent.benefits.title}
@@ -30,10 +30,10 @@ export function BenefitsSection() {
                 <article
                   className={`interactive-card interactive-card-soft hover-sheen relative rounded-[1.9rem] border p-6 shadow-[var(--shadow-soft)] ${
                     index === 0
-                      ? "section-tint-sky border-[rgba(125,185,208,0.18)] sm:translate-y-6"
+                      ? "section-tint-mint border-[rgba(20,184,166,0.14)] sm:translate-y-6"
                       : index === 1
                         ? "section-tint-warm border-[rgba(203,150,100,0.18)]"
-                        : "glass-panel border-[var(--color-line)] xl:translate-y-10"
+                        : "glass-panel section-tint-neutral border-[var(--color-line)] xl:translate-y-10"
                   }`}
                 >
                   <span className="micro-badge mb-4 text-[var(--color-accent)]">

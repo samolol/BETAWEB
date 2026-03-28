@@ -14,7 +14,7 @@ function AccentIcon({ index }: { index: number }) {
   const accent = showcaseAccents[index] ?? showcaseAccents[0];
 
   return (
-    <div className={`card-icon ${accent.color}`}>
+    <div className={`card-icon border-white/12 bg-white/10 ${accent.color}`}>
       <svg viewBox="0 0 32 32" className="h-5 w-5" fill="none" aria-hidden="true">
         <path
           d="M8 8h16v16H8z"
@@ -47,8 +47,12 @@ export function ShowcaseSection() {
   return (
     <section id="reference" className="scroll-mt-28 py-20 sm:py-24">
       <Container>
-        <div className="section-shell relative overflow-hidden rounded-[2.6rem] border border-[var(--color-line)] bg-[linear-gradient(180deg,rgba(25,36,54,0.96),rgba(31,49,65,0.98))] px-6 py-10 shadow-[0_38px_110px_rgba(31,37,49,0.24)] sm:px-8 lg:px-10 lg:py-12">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(31,123,112,0.28),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(203,150,100,0.24),transparent_24%),radial-gradient(circle_at_70%_24%,rgba(125,185,208,0.12),transparent_18%)]" />
+        <div className="section-shell section-dark relative overflow-hidden rounded-[2.6rem] border border-white/8 px-6 py-10 shadow-[0_38px_110px_rgba(15,23,42,0.34)] sm:px-8 lg:px-10 lg:py-12">
+          <div className="bg-glow ambient-drift absolute -left-10 top-4 h-[24rem] w-[24rem] rounded-full bg-[rgba(20,184,166,0.28)]" />
+          <div className="bg-glow ambient-drift absolute right-0 top-0 h-[20rem] w-[20rem] rounded-full bg-[rgba(56,189,248,0.22)] [animation-delay:-8s]" />
+          <div className="bg-glow ambient-drift absolute bottom-0 left-[34%] h-[16rem] w-[16rem] rounded-full bg-[rgba(251,146,60,0.18)] [animation-delay:-12s]" />
+          <div className="bg-dot-pattern absolute inset-0 opacity-20" />
+          <div className="bg-noise-soft absolute inset-0" />
 
           <div className="relative">
             <Reveal>
@@ -66,11 +70,11 @@ export function ShowcaseSection() {
                   <article
                     className={`interactive-card interactive-card-strong hover-sheen group relative overflow-hidden rounded-[2rem] border p-6 sm:p-7 ${
                       index === 1
-                        ? "interactive-card-premium border-[rgba(203,150,100,0.22)] bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0.08))] shadow-[0_24px_60px_rgba(0,0,0,0.18)]"
-                        : "border-[rgba(255,255,255,0.1)] bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))] shadow-[0_20px_50px_rgba(0,0,0,0.14)]"
+                        ? "interactive-card-premium border-[rgba(203,150,100,0.24)] bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0.08))] shadow-[0_24px_60px_rgba(0,0,0,0.18)]"
+                        : "border-[rgba(255,255,255,0.1)] bg-[linear-gradient(180deg,rgba(255,255,255,0.1),rgba(255,255,255,0.04))] shadow-[0_20px_50px_rgba(0,0,0,0.14)]"
                     }`}
                   >
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_26%),linear-gradient(180deg,transparent,rgba(255,255,255,0.03))]" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent_26%),linear-gradient(180deg,transparent,rgba(255,255,255,0.04))]" />
                     <div className="relative flex h-full flex-col justify-between gap-8">
                       <div>
                         <div className="flex items-start justify-between gap-4">
@@ -83,7 +87,7 @@ export function ShowcaseSection() {
                         <h3 className="font-display mt-6 text-[2rem] leading-[1.02] text-white">
                           {item.title}
                         </h3>
-                        <p className="mt-4 max-w-[16rem] text-sm leading-7 text-white/70">
+                        <p className="mt-4 max-w-[16rem] text-sm leading-7 text-white/72">
                           {item.subtitle}
                         </p>
                       </div>
