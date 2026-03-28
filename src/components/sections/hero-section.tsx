@@ -87,7 +87,7 @@ export function HeroSection() {
   return (
     <section
       id="top"
-      className="bg-warm-gradient relative overflow-hidden pb-22 pt-12 sm:pb-24 sm:pt-18 lg:pb-30 lg:pt-22"
+      className="bg-warm-gradient relative flex min-h-[calc(100svh-4.75rem)] items-center overflow-hidden py-8 sm:min-h-[calc(100svh-5rem)] sm:py-10 lg:min-h-[calc(100svh-5.25rem)] lg:py-12"
     >
       <div className="absolute inset-x-0 top-0 -z-10 h-[44rem] bg-[radial-gradient(circle_at_top_left,rgba(31,123,112,0.2),transparent_32%),radial-gradient(circle_at_78%_12%,rgba(203,150,100,0.18),transparent_24%),radial-gradient(circle_at_62%_32%,rgba(125,185,208,0.16),transparent_18%),linear-gradient(180deg,rgba(255,255,255,0.7),transparent)]" />
       <div className="bg-glow ambient-drift absolute -left-18 top-4 -z-10 h-[22rem] w-[22rem] rounded-full bg-[rgba(20,184,166,0.28)]" />

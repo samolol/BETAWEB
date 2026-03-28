@@ -10,7 +10,7 @@ export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 pt-3">
+    <header className="sticky top-0 z-50">
       <Container>
         <div className="glass-panel gradient-ring rounded-full border border-[var(--color-line)] px-4 py-3 shadow-[var(--shadow-soft)] transition-[box-shadow,border-color,background-color] duration-300 ease-[var(--ease-standard)] hover:border-[rgba(31,123,112,0.14)] hover:shadow-[var(--shadow-float)]">
           <div className="flex items-center justify-between gap-6">
