@@ -329,13 +329,18 @@ export const siteContent: SiteContent = {
     ],
   },
   about: {
-    title: "O mně",
+    title: "Kdo za tím stojí",
     paragraphs: [
-      "Nejsem agentura. Na webu pracuji přímo s Vámi.",
-      "Komunikace je rychlá, jednoduchá a bez zbytečného přeposílání mezi lidmi.",
-      "Řešíme jen to, co Vašemu webu opravdu pomůže.",
+      "Jsem freelancer, který tvoří jednoduché a funkční weby pro malé firmy, živnostníky a služby. Neřeším zbytečnosti ani složité procesy. Důležité je, aby web vypadal dobře, dával smysl a hlavně přiváděl poptávky.",
+      "Spolupracujete přímo se mnou – bez agentury, bez zdlouhavé komunikace a bez zbytečných kol úprav. Domluvíme se jednoduše, vysvětlím vám vše lidsky a postarám se o celý web od návrhu až po spuštění.",
+      "Cílem není jen „mít web“, ale mít web, který vám opravdu pomůže získat nové zákazníky.",
     ],
-    points: ["Přímo se mnou", "Bez zbytečností", "Web, který dává smysl"],
+    points: [
+      "Přímá komunikace bez prostředníků",
+      "Jednoduchý a rychlý proces",
+      "Weby zaměřené na výsledky",
+      "Pomůžu vám i po spuštění",
+    ],
   },
   faq: {
     title: "Často kladené dotazy",
