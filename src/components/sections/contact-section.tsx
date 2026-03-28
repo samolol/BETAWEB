@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { siteContent } from "@/content/site";
 import { ContactForm } from "@/components/contact-form";
 import { Container } from "@/components/ui/container";
@@ -8,12 +10,13 @@ export function ContactSection() {
   return (
     <section id="kontakt" className="scroll-mt-28 py-20 sm:py-24">
       <Container>
-        <div className="section-tint-mint relative overflow-hidden rounded-[2.6rem] border border-[var(--color-line)] px-6 py-8 shadow-[var(--shadow-card)] sm:px-8 sm:py-10 lg:px-10">
+        <div className="section-shell section-tint-mint relative overflow-hidden rounded-[2.7rem] border border-[var(--color-line)] px-6 py-8 shadow-[var(--shadow-card)] sm:px-8 sm:py-10 lg:px-10">
           <div className="absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_top_right,rgba(203,150,100,0.14),transparent_42%)]" />
-          <div className="absolute left-[12%] top-[8%] h-28 w-28 rounded-full bg-[rgba(125,185,208,0.14)] blur-3xl" />
+          <div className="accent-orb left-[8%] top-[10%] h-28 w-28 bg-[rgba(125,185,208,0.16)]" />
+          <div className="accent-orb right-[16%] bottom-[14%] h-24 w-24 bg-[rgba(203,150,100,0.16)]" />
 
-          <div className="relative grid gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(360px,1.15fr)] lg:items-start">
-            <Reveal>
+          <div className="relative grid gap-8 lg:grid-cols-[minmax(0,0.82fr)_minmax(380px,1.18fr)] lg:items-start">
+            <Reveal rotateDeg={-1}>
               <div>
                 <SectionHeading
                   eyebrow="Kontakt"
@@ -22,7 +25,7 @@ export function ContactSection() {
                 />
 
                 <div className="mt-8 space-y-4">
-                  <div className="interactive-card interactive-card-soft surface-glow rounded-[1.7rem] border border-[var(--color-line)] bg-white/82 p-5 shadow-[var(--shadow-soft)]">
+                  <div className="glass-panel hover-sheen interactive-card interactive-card-soft rounded-[1.8rem] border border-[var(--color-line)] p-5 shadow-[var(--shadow-soft)]">
                     <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
                       E-mail
                     </p>
@@ -34,7 +37,7 @@ export function ContactSection() {
                     </a>
                   </div>
 
-                  <div className="interactive-card interactive-card-soft surface-glow rounded-[1.7rem] border border-[var(--color-line)] bg-white/82 p-5 shadow-[var(--shadow-soft)]">
+                  <div className="glass-panel hover-sheen interactive-card interactive-card-soft rounded-[1.8rem] border border-[var(--color-line)] p-5 shadow-[var(--shadow-soft)]">
                     <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
                       Telefon
                     </p>
@@ -46,7 +49,7 @@ export function ContactSection() {
                     </a>
                   </div>
 
-                  <div className="interactive-card interactive-card-soft surface-glow rounded-[1.7rem] border border-[var(--color-line)] bg-white/82 p-5 shadow-[var(--shadow-soft)]">
+                  <div className="glass-panel hover-sheen interactive-card interactive-card-soft rounded-[1.8rem] border border-[var(--color-line)] p-5 shadow-[var(--shadow-soft)]">
                     <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
                       Spolupráce
                     </p>
@@ -58,8 +61,19 @@ export function ContactSection() {
               </div>
             </Reveal>
 
-            <Reveal delayMs={120}>
-              <ContactForm />
+            <Reveal delayMs={120} rotateDeg={1}>
+              <div className="relative">
+                <div className="pointer-events-none absolute -right-6 -top-8 hidden w-32 lg:block">
+                  <Image
+                    src="/images/contact-mascot.svg"
+                    alt="Dekorativní ilustrace vedle kontaktního formuláře."
+                    width={320}
+                    height={320}
+                    className="float-slower h-auto w-full drop-shadow-[0_24px_48px_rgba(63,47,31,0.16)]"
+                  />
+                </div>
+                <ContactForm />
+              </div>
             </Reveal>
           </div>
         </div>

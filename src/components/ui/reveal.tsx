@@ -6,9 +6,17 @@ type RevealProps = {
   children: ReactNode;
   className?: string;
   delayMs?: number;
+  rotateDeg?: number;
+  distance?: number;
 };
 
-export function Reveal({ children, className = "", delayMs = 0 }: RevealProps) {
+export function Reveal({
+  children,
+  className = "",
+  delayMs = 0,
+  rotateDeg = 0,
+  distance = 24,
+}: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(() => {
     if (typeof window === "undefined") {
@@ -49,8 +57,11 @@ export function Reveal({ children, className = "", delayMs = 0 }: RevealProps) {
     return () => observer.disconnect();
   }, [isVisible]);
 
-  const style: CSSProperties | undefined =
-    delayMs > 0 ? { transitionDelay: `${delayMs}ms` } : undefined;
+  const style: CSSProperties = {
+    ...(delayMs > 0 ? { transitionDelay: `${delayMs}ms` } : {}),
+    ["--reveal-rotate" as string]: `${rotateDeg}deg`,
+    ["--reveal-y" as string]: `${distance}px`,
+  };
 
   return (
     <div

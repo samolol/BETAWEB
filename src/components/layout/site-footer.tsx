@@ -7,7 +7,7 @@ export function SiteFooter() {
   return (
     <footer className="py-8">
       <Container>
-        <div className="section-tint-sky rounded-[1.9rem] border border-[var(--color-line)] px-5 py-5 shadow-[var(--shadow-soft)] backdrop-blur transition-[box-shadow,border-color] duration-300 ease-[var(--ease-standard)] hover:border-[rgba(31,123,112,0.12)] hover:shadow-[var(--shadow-float)] sm:flex sm:items-center sm:justify-between">
+        <div className="glass-panel section-tint-sky rounded-[1.9rem] border border-[var(--color-line)] px-5 py-5 shadow-[var(--shadow-soft)] transition-[box-shadow,border-color] duration-300 ease-[var(--ease-standard)] hover:border-[rgba(31,123,112,0.12)] hover:shadow-[var(--shadow-float)] sm:flex sm:items-center sm:justify-between">
           <div>
             <p className="font-medium text-[var(--color-text)]">{siteContent.footer.claim}</p>
             <p className="mt-1 text-sm text-[var(--color-muted)]">{siteContent.footer.note}</p>
