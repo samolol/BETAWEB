@@ -1,0 +1,740 @@
+<html lang="cs"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebNaMíru Studio | Moderní weby pro firmy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    
+    <style>
+      :root {
+      --dark: #020617;
+      --accent: #F97316;
+      --light: #FFFFFF;
+      }
+      ::-webkit-scrollbar { display: none; }
+      .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+      }
+      .marquee-content {
+      display: inline-block;
+      animation: marquee 20s linear infinite;
+      }
+      @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+      }
+      .clip-text-image {
+      background: url('https://images.unsplash.com/photo-1555421689-491a97ff2040?w=1600&q=80') center/cover !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: rgba(255, 255, 255, 0.1) !important;
+      }
+      .border-gradient {
+      position: relative;
+      }
+      .border-gradient::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(to bottom right, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      }
+      ::selection { background-color: #C8A86A !important; color: #0F141C !important; }
+      .bg-\[\#F97316\], .bg-\[\#f59e0b\] { background-color: #C8A86A !important; }
+      .text-\[\#F97316\], .text-\[\#f59e0b\] { color: #C8A86A !important; }
+      .hover\:bg-\[\#F97316\]:hover, .hover\:bg-\[\#f59e0b\]:hover { background-color: #C8A86A !important; }
+      .hover\:text-\[\#F97316\]:hover, .hover\:text-\[\#f59e0b\]:hover { color: #C8A86A !important; }
+      .group:hover .group-hover\:text-\[\#F97316\], .group:hover .group-hover\:text-\[\#f59e0b\] { color: #C8A86A !important; }
+      .selection\:bg-\[\#F97316\] *::selection { background-color: #C8A86A !important; }
+      :root { --accent: #C8A86A !important; }
+      .bg-\[\#020617\] { background-color: #0F141C !important; }
+      .bg-\[\#080808\] { background-color: #1B1F27 !important; }
+      .bg-\[\#141414\] { background-color: #0F141C !important; }
+      .text-\[\#020617\] { color: #0F141C !important; }
+      .border-\[\#262626\] { border-color: rgba(200, 168, 106, 0.15) !important; }
+      h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif !important; }
+      /* Oprava lokálního scrollování v případě selhání JS */
+      html, body { overflow-y: auto !important; overflow-x: hidden !important; }
+      
+      /* Jednoduché prolnutí mezi stránkami */
+      .page-transition {
+          animation: fadeIn 0.5s ease-in-out;
+      }
+      @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;rect width='100' height='100' rx='20' fill='%231B1F27'/&gt;&lt;text x='50' y='68' font-family='serif' font-size='45' fill='%23C8A86A' text-anchor='middle'&gt;WNM&lt;/text&gt;&lt;/svg&gt;">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2M6V79H761"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2M6V79H761');
+    </script>
+    <meta name="description" content="Tvořím moderní weby na míru, redesigny a landing pages pro firmy, které chtějí působit profesionálně, získávat důvěru a více poptávek.">
+    <meta name="keywords" content="weby na míru, tvorba webů, redesign webu, moderní weby pro firmy, webdesign, landing page, WebNaMíru Studio">
+    <meta name="author" content="WebNaMíru Studio">
+  </head>
+  <body class="antialiased scroll-smooth bg-[#0F141C] text-[#F6F4EF] overflow-x-hidden selection:bg-[#C8A86A] selection:text-[#0F141C] font-sans">
+
+    <!-- MAIN PAGE -->
+    <main id="page-home">
+      <section class="min-h-[130vh] flex flex-col overflow-hidden w-full pt-8 relative items-center" id="hero">
+        <div class="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none z-0 opacity-20">
+          <h1 class="text-[40vw] leading-[0.8] font-serif font-medium tracking-tighter text-white/5 uppercase mix-blend-overlay gs-bg-text">
+            WNM
+          </h1>
+        </div>
+
+        <nav class="w-full max-w-[95%] mx-auto flex justify-between items-center z-20 relative gs-nav">
+          <a href="/" class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#1B1F27] border border-[#C8A86A]/40 flex items-center justify-center text-[#C8A86A] font-serif text-xl leading-none tracking-tighter">
+              WNM
+            </div>
+            <div class="flex flex-col">
+              <span class="text-[1.1rem] font-serif font-medium leading-none tracking-wide text-[#F6F4EF]">
+                WebNaMíru
+              </span>
+              <span class="text-[0.6rem] font-sans font-light tracking-[0.2em] text-[#C8A86A] uppercase mt-1">
+                Studio
+              </span>
+            </div>
+          </a>
+
+          <div class="hidden md:flex items-center gap-8 bg-[#080808]/80 backdrop-blur-md rounded-full px-6 py-2 border border-[#262626]">
+            <a href="/" class="group relative flex items-center gap-2 text-sm font-light text-[#C8A86A] hover:text-[#C8A86A] transition-colors pb-0.5">
+              <span class="w-2 h-2 rounded-full bg-[#C8A86A]"></span>
+              Služby
+              <span class="absolute left-0 -bottom-1 w-full h-[1px] bg-[#C8A86A] scale-x-100 origin-left transition-transform duration-300"></span>
+            </a>
+            <a href="/ukazky" class="group relative text-sm font-light text-white/70 hover:text-[#C8A86A] transition-colors pb-0.5">
+              Ukázky
+              <span class="absolute left-0 -bottom-1 w-full h-[1px] bg-[#C8A86A] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+            </a>
+            <a href="/" class="group relative text-sm font-light text-white/70 hover:text-[#C8A86A] transition-colors pb-0.5">
+              Proces
+              <span class="absolute left-0 -bottom-1 w-full h-[1px] bg-[#C8A86A] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+            </a>
+            <a href="/" class="group relative text-sm font-light text-white/70 hover:text-[#C8A86A] transition-colors pb-0.5">
+              Kontakt
+              <span class="absolute left-0 -bottom-1 w-full h-[1px] bg-[#C8A86A] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+            </a>
+          </div>
+
+          <a href="/" class="bg-white text-[#020617] px-5 py-2 rounded-full text-sm font-normal flex items-center gap-2 hover:bg-[#D4D4D4] transition-colors">
+            Chci nový web
+            <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+          </a>
+        </nav>
+
+        <div class="w-full max-w-[90%] mx-auto mt-20 relative z-10 flex flex-col items-center">
+          <div class="w-full flex justify-between absolute top-[10%] text-xs font-light text-white/50 uppercase tracking-widest hidden lg:flex gs-hero-text">
+            <div class="max-w-[200px]">
+              Tvořím moderní weby, které nepůsobí jen hezky — pomáhají firmám
+              získávat důvěru, poptávky a nové zákazníky.
+            </div>
+            <div class="text-right flex flex-col gap-1">
+              <span class="opacity-70">Moderní design //</span>
+              <span class="opacity-70">Rychlé načítání //</span>
+              <span class="opacity-70">Ziskovější web //</span>
+              <span class="opacity-70">Obchodní nástroj //</span>
+            </div>
+          </div>
+
+          <div class="text-center relative gs-title mt-12 md:mt-0">
+            <div class="absolute -left-10 md:-left-32 top-1/2 -translate-y-1/2 gs-hero-btn">
+              <a href="/ukazky" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-full text-sm font-normal flex items-center gap-2 hover:bg-white/20 transition-all">
+                Ukázky webů
+                <span class="w-6 h-6 rounded-full text-[#020617] flex items-center justify-center bg-[#C8A86A]">
+                  <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+                </span>
+              </a>
+            </div>
+            <h1 class="text-[12vw] md:text-[9vw] leading-[0.85] font-medium tracking-tight uppercase text-white drop-shadow-2xl z-20 relative">
+              <span class="block overflow-hidden">
+                <span class="block gs-title-line">WEBY</span>
+              </span>
+              <span class="block overflow-hidden">
+                <span class="block gs-title-line">NA MÍRU</span>
+              </span>
+              <span class="block overflow-hidden text-transparent clip-text-image">
+                <span class="block gs-title-line font-serif italic pr-4">
+                  PRO FIRMY
+                </span>
+              </span>
+            </h1>
+          </div>
+        </div>
+
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[20%] w-[90%] md:w-[70%] h-[50vh] md:h-[60vh] rounded-3xl overflow-hidden z-30 gs-hero-img shadow-2xl">
+          <div class="w-full h-full bg-black/20 absolute inset-0 z-10"></div>
+          <img src="https://images.unsplash.com/photo-1678690832311-bb6e361989ca?w=2560&amp;q=80" alt="Moderní webový mockup na laptopu" class="w-full h-full object-cover scale-110" id="hero-img-inner">
+        </div>
+      </section>
+
+      <section class="md:px-12 text-white z-20 pt-[30vh] pr-6 pb-24 pl-6 relative bg-[#080808]" id="villas">
+        <div class="absolute bottom-10 right-10 text-[18vw] font-medium tracking-tight text-white/40 uppercase leading-none pointer-events-none gs-fade-up">
+          PROBLÉM.
+        </div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
+          <div class="flex flex-col justify-center">
+            <h2 class="text-6xl md:text-[6vw] leading-[0.9] font-medium tracking-tight text-white uppercase gs-fade-up">
+              ZASTARALÝ
+              <br>
+              WEB
+              <br>
+              ZTRÁCÍ
+              <br>
+              DŮVĚRU.
+            </h2>
+
+            <div class="mt-12 space-y-4 text-sm font-light gs-fade-up border-l-2 border-white/30 pl-6">
+              <div class="flex items-center gap-4 text-white">
+                <span class="text-xs opacity-70 font-mono">// 01</span>
+                <span class="text-base font-normal">Proč váš web nefunguje?</span>
+              </div>
+              <div class="text-[#D4D4D4] hover:text-[#FFFFFF] transition-colors cursor-pointer pt-2">
+                Návštěvník nepochopí nabídku
+              </div>
+              <div class="text-[#D4D4D4] hover:text-[#FFFFFF] transition-colors cursor-pointer">
+                Web působí neprofesionálně
+              </div>
+              <div class="text-[#D4D4D4] hover:text-[#FFFFFF] transition-colors cursor-pointer">
+                Na mobilu se špatně používá
+              </div>
+              <div class="text-[#D4D4D4] hover:text-[#FFFFFF] transition-colors cursor-pointer">
+                Chybí jasná cesta ke kontaktu
+              </div>
+            </div>
+
+            <div class="mt-12 flex gap-4 gs-fade-up">
+              <button class="w-16 h-16 rounded-full border border-[#262626] flex items-center justify-center hover:bg-[#C8A86A] hover:text-[#020617] transition-all">
+                <iconify-icon icon="solar:arrow-left-linear" width="24" class=""></iconify-icon>
+              </button>
+              <button class="flex hover:bg-[#C8A86A] hover:text-[#020617] transition-all text-[#FFFFFF] bg-[#262626] w-16 h-16 rounded-full items-center justify-center">
+                <iconify-icon icon="solar:arrow-right-linear" width="24" class=""></iconify-icon>
+              </button>
+            </div>
+          </div>
+
+          <div class="relative h-[400px] md:h-[600px] w-full lg:w-[120%] lg:-ml-[10%] rounded-3xl overflow-hidden gs-fade-up shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1651796699697-d04554725195?w=1600&amp;q=80" alt="Frustrovaný uživatel zastaralého webu" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-[#020617] py-24 px-6 md:px-12 relative" id="hotel-intro">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div class="flex flex-col items-start gs-fade-up">
+            <div class="px-3 py-1 rounded-full border border-[#262626] text-xs font-light uppercase tracking-wider mb-6">
+              ŘEŠENÍ
+            </div>
+            <h2 class="text-7xl md:text-[8vw] leading-[0.9] font-medium tracking-tight uppercase mb-8">
+              WEB, KTERÝ PRODÁVÁ
+            </h2>
+            <p class="text-white/50 text-sm font-light max-w-sm mb-12">
+              Navrhnu web tak, aby firma působila důvěryhodně, moderně a
+              profesionálně. Každá sekce má mít jasný účel: vysvětlit hodnotu,
+              ukázat kvalitu a dovést návštěvníka k poptávce.
+            </p>
+
+            <div class="mt-12 ml-12">
+              <a href="/" class="bg-white/5 backdrop-blur-md border border-white/10 text-white px-5 py-2.5 rounded-full text-sm font-normal flex items-center gap-3 hover:bg-white/10 transition-all">
+                Chci nový web
+                <span class="w-2 h-2 rounded-full bg-[#C8A86A]"></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-6 gs-fade-up lg:mt-24 relative">
+            <div class="flex justify-between items-end mb-4">
+              <h3 class="text-xl font-medium uppercase tracking-tight">
+                NA KAŽDÉM DETAILU ZÁLEŽÍ
+              </h3>
+            </div>
+            <div class="w-full h-[250px] rounded-2xl overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1600&amp;q=80" class="w-full h-full object-cover" alt="Moderní webový návrh s konverzními prvky a statistikami">
+            </div>
+
+            <div class="space-y-4 mt-8 border-t border-white/10 pt-6">
+              <div class="flex justify-between items-center group cursor-pointer">
+                <span class="text-sm font-normal uppercase tracking-wider group-hover:text-[#C8A86A] transition-colors">
+                  NÁVRH STRATEGIE
+                </span>
+                <iconify-icon icon="solar:arrow-right-linear" class="text-white/50 group-hover:text-[#C8A86A] transition-colors"></iconify-icon>
+              </div>
+              <div class="flex justify-between items-center group cursor-pointer">
+                <span class="text-sm font-normal uppercase tracking-wider group-hover:text-[#C8A86A] transition-colors">
+                  MODERNÍ DESIGN
+                </span>
+                <iconify-icon icon="solar:arrow-right-linear" class="text-white/50 group-hover:text-[#C8A86A] transition-colors"></iconify-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-[#020617] py-12 px-6 md:px-12 relative overflow-hidden" id="hotel-grid">
+        <h2 class="text-[12vw] leading-none font-medium tracking-tight text-white/5 uppercase text-center absolute top-10 left-0 w-full pointer-events-none select-none gs-bg-text">
+          UKÁZKY WEBŮ
+        </h2>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+          <div class="flex flex-col md:flex-row items-end justify-between mb-12 gs-fade-up">
+            <p class="text-xs font-light text-white/50 max-w-xs uppercase tracking-widest leading-relaxed">
+              Podívejte se na ukázky z naší tvorby. Od restaurací po e-shopy a
+              lokální služby, každý web tvoříme s cílem zaujmout a prodávat.
+            </p>
+
+            <a href="/ukazky" class="bg-white/5 backdrop-blur-md border border-white/10 text-white px-5 py-2.5 rounded-full text-sm font-normal flex items-center gap-3 hover:bg-white/10 transition-all mt-6 md:mt-0">
+              Více ukázek
+              <span class="w-2 h-2 rounded-full bg-[#C8A86A]"></span>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+            <div class="h-[200px] rounded-2xl overflow-hidden gs-fade-up hidden md:block">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/26d19790-1633-47a4-9a4e-3962623ff629_800w.png" class="w-full h-full object-cover" alt="Moderní mockup webu pro restauraci a lokální služby">
+            </div>
+            <div class="md:col-span-2 h-[350px] md:h-[450px] rounded-2xl overflow-hidden gs-fade-up">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e0219a7f-ed18-4c75-a84b-69e5772f9b2d_1600w.png" class="w-full h-full object-cover" alt="Moderní landing page a firemní e-shop prezentace na monitoru">
+            </div>
+            <div class="h-[200px] rounded-2xl overflow-hidden gs-fade-up">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/439c53d4-b64d-4dfa-b214-6ff575bb226a_800w.png" class="w-full h-full object-cover" alt="Responzivní verze moderního webu na telefonu">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-[#020617] py-24 relative overflow-hidden" id="corporations">
+        <div class="max-w-[95%] mx-auto px-6 md:px-12 mb-12 gs-fade-up">
+          <h2 class="text-sm font-light text-white/50 uppercase tracking-widest mb-4">
+            Naše zaměření
+          </h2>
+          <h1 class="text-5xl md:text-[7vw] leading-[0.85] font-medium tracking-tight uppercase mb-8">
+            VY předáte představu, Já realizuju
+          </h1>
+
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+            <p class="text-xs font-light text-white/50 max-w-sm uppercase tracking-widest leading-relaxed">
+              MAXIMALNÍ PŘIZPŮSOBENÍ VAŠIM PŘÁNÍ
+            </p>
+            <a href="/" class="bg-white/5 backdrop-blur-md border border-white/10 text-white px-5 py-2.5 rounded-full text-sm font-normal flex items-center gap-3 hover:bg-white/10 transition-all">
+              Chci nový web
+              <span class="w-6 h-6 rounded-full text-[#020617] flex items-center justify-center bg-[#C8A86A]">
+                <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-full h-[60vh] md:h-[80vh] relative gs-fade-up">
+          <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=3840&amp;q=80" class="w-full h-full object-cover object-top" alt="Digitální business dashboard a graf růstu">
+
+          <div class="absolute inset-0 max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between pointer-events-none">
+            <button class="w-14 h-14 rounded-full bg-white/10 backdrop-blur border border-[#262626] text-white flex items-center justify-center pointer-events-auto hover:bg-[#C8A86A] hover:text-[#020617] transition-all">
+              <iconify-icon icon="solar:arrow-left-linear" width="20"></iconify-icon>
+            </button>
+            <button class="w-14 h-14 rounded-full text-[#020617] flex items-center justify-center pointer-events-auto hover:bg-white transition-all bg-[#C8A86A]">
+              <iconify-icon icon="solar:arrow-right-linear" width="20"></iconify-icon>
+            </button>
+          </div>
+
+          <div class="absolute bottom-10 right-10 md:right-[10%] bg-black/40 backdrop-blur-md p-6 rounded-2xl border border-white/10 max-w-xs">
+            <p class="text-xs font-light text-white/70 uppercase tracking-widest mb-2">
+              před návštěvníkem budete vypadat
+            </p>
+            <h3 class="text-xl font-medium tracking-tight uppercase">DOKONALE</h3>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-[#020617] py-24 px-6 md:px-12 relative border-t border-[#262626]" id="proces">
+        <div class="max-w-7xl mx-auto gs-fade-up">
+          <div class="px-3 py-1 rounded-full border border-[#262626] text-xs font-medium uppercase tracking-wider mb-6 inline-block text-white">
+            Krok za krokem
+          </div>
+          <h2 class="text-5xl md:text-7xl leading-[0.9] font-medium tracking-tight text-white uppercase mb-16">
+            PROCES TVORBY
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-8 border-t border-[#262626] pt-12">
+            <div class="flex flex-col gap-4 group">
+              <span class="text-3xl font-extralight opacity-20 font-mono text-[#C8A86A]">
+                01
+              </span>
+              <h4 class="text-lg font-medium uppercase text-white">
+                Krátká konzultace
+              </h4>
+              <p class="text-xs font-light text-white/50">
+                Probereme vaše cíle a představy o novém webu.
+              </p>
+            </div>
+            <!-- Další procesní kroky odstraněny pro stručnost v tomto snippetu, v realitě by byly zachovány z původního html -->
+            <div class="flex flex-col gap-4 group">
+              <span class="text-3xl font-extralight opacity-20 font-mono text-[#C8A86A]">02</span>
+              <h4 class="text-lg font-medium uppercase text-white">Návrh řešení</h4>
+              <p class="text-xs font-light text-white/50">Připravím wireframe a jasnou strukturu prezentace.</p>
+            </div>
+            <div class="flex flex-col gap-4 group">
+              <span class="text-3xl font-extralight opacity-20 font-mono text-[#C8A86A]">03</span>
+              <h4 class="text-lg font-medium uppercase text-white">Design a tvorba</h4>
+              <p class="text-xs font-light text-white/50">Vytvořím vizuálně prémiový a funkční design.</p>
+            </div>
+            <div class="flex flex-col gap-4 group">
+              <span class="text-3xl font-extralight opacity-20 font-mono text-[#C8A86A]">04</span>
+              <h4 class="text-lg font-medium uppercase text-white">Spuštění webu</h4>
+              <p class="text-xs font-light text-white/50">Otestujeme funkčnost a web nasadíme na vaši doménu.</p>
+            </div>
+            <div class="flex flex-col gap-4 group">
+              <span class="text-3xl font-extralight opacity-20 font-mono text-[#C8A86A]">05</span>
+              <h4 class="text-lg font-medium uppercase text-white">Úpravy a podpora</h4>
+              <p class="text-xs font-light text-white/50">Zajistím drobné úpravy a následný servis webu.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- NEW PAGE: UKÁZKY (Skryto v základu, aktivováno přes JS router) -->
+    <main id="page-ukazky" style="display: none;" class="page-transition">
+      <!-- Navigace speciálně pro stránku Ukázky -->
+      <nav class="w-full max-w-[95%] mx-auto flex justify-between items-center z-20 relative pt-8 pb-12">
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-full bg-[#1B1F27] border border-[#C8A86A]/40 flex items-center justify-center text-[#C8A86A] font-serif text-xl leading-none tracking-tighter group-hover:bg-[#C8A86A] group-hover:text-[#1B1F27] transition-colors">
+            WNM
+          </div>
+          <div class="flex flex-col">
+            <span class="text-[1.1rem] font-serif font-medium leading-none tracking-wide text-[#F6F4EF]">WebNaMíru</span>
+            <span class="text-[0.6rem] font-sans font-light tracking-[0.2em] text-[#C8A86A] uppercase mt-1">Studio</span>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8 bg-[#080808]/80 backdrop-blur-md rounded-full px-6 py-2 border border-[#262626]">
+          <a href="/" class="group relative flex items-center gap-2 text-sm font-light text-white/70 hover:text-[#C8A86A] transition-colors pb-0.5">
+            <iconify-icon icon="solar:arrow-left-linear"></iconify-icon>
+            Zpět na hlavní stránku
+            <span class="absolute left-0 -bottom-1 w-full h-[1px] bg-[#C8A86A] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+          </a>
+        </div>
+
+        <a href="/" class="bg-[#F6F4EF] text-[#0F141C] px-5 py-2 rounded-full text-sm font-normal flex items-center gap-2 hover:bg-[#C8A86A] transition-colors">
+          Chci nový web
+          <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+        </a>
+      </nav>
+
+      <!-- Ukázky Hero -->
+      <section class="pt-20 pb-20 px-6 md:px-12 relative flex flex-col items-center text-center">
+        <h1 class="text-6xl md:text-[8vw] leading-[0.85] font-medium tracking-tight uppercase text-white drop-shadow-2xl z-20 font-serif">
+          UKÁZKY WEBŮ
+        </h1>
+        <p class="text-sm font-light text-white/50 max-w-2xl mx-auto mt-8 uppercase tracking-widest leading-relaxed">
+          Vybrané koncepty webů pro různé typy firem a podnikatelů. Každý návrh je postavený tak, aby působil důvěryhodně, moderně a vedl návštěvníka k poptávce.
+        </p>
+      </section>
+
+      <!-- Portfolio Grid -->
+      <section class="px-6 md:px-12 pb-32 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Karta 1: Restaurace -->
+          <a href="/" class="group block bg-[#080808] border border-[#262626] rounded-3xl overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+            <div class="h-64 overflow-hidden relative border-b border-[#262626]">
+              <div class="absolute inset-0 bg-[#C8A86A]/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 mix-blend-overlay"></div>
+              <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&amp;q=80" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105" alt="Web pro restauraci">
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-medium uppercase tracking-tight text-[#F6F4EF] mb-2 font-serif group-hover:text-[#C8A86A] transition-colors">Restaurace &amp; Gastronomie</h3>
+              <p class="text-xs font-light text-white/50 mb-8 leading-relaxed">Prémiový web pro restauraci zaměřený na atmosféru, snadnou rezervaci stolu a přehledné zobrazení denního i večerního menu.</p>
+              <div class="flex items-center gap-2 text-xs uppercase tracking-wider font-medium text-white group-hover:text-[#C8A86A] transition-colors">
+                Zobrazit ukázku <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+              </div>
+            </div>
+          </a>
+
+          <!-- Karta 2: Barber shop -->
+          <a href="/" class="group block bg-[#080808] border border-[#262626] rounded-3xl overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+            <div class="h-64 overflow-hidden relative border-b border-[#262626]">
+              <div class="absolute inset-0 bg-[#C8A86A]/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 mix-blend-overlay"></div>
+              <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800&amp;q=80" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105" alt="Web pro barber shop">
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-medium uppercase tracking-tight text-[#F6F4EF] mb-2 font-serif group-hover:text-[#C8A86A] transition-colors">Barber Shop &amp; Salon</h3>
+              <p class="text-xs font-light text-white/50 mb-8 leading-relaxed">Stylová online prezentace pro pánské holičství. Cílem je rychlá online rezervace termínů a odprezentování kvality služeb a prostředí.</p>
+              <div class="flex items-center gap-2 text-xs uppercase tracking-wider font-medium text-white group-hover:text-[#C8A86A] transition-colors">
+                Zobrazit ukázku <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+              </div>
+            </div>
+          </a>
+
+          <!-- Karta 3: Stavební firma -->
+          <a href="/" class="group block bg-[#080808] border border-[#262626] rounded-3xl overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+            <div class="h-64 overflow-hidden relative border-b border-[#262626]">
+              <div class="absolute inset-0 bg-[#C8A86A]/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 mix-blend-overlay"></div>
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105" alt="Web pro stavební firmu">
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-medium uppercase tracking-tight text-[#F6F4EF] mb-2 font-serif group-hover:text-[#C8A86A] transition-colors">Stavební Firma</h3>
+              <p class="text-xs font-light text-white/50 mb-8 leading-relaxed">Profesionální web budující důvěru. Ukazuje reálné reference, spolehlivost firmy a obsahuje jasnou výzvu k bezplatné konzultaci projektu.</p>
+              <div class="flex items-center gap-2 text-xs uppercase tracking-wider font-medium text-white group-hover:text-[#C8A86A] transition-colors">
+                Zobrazit ukázku <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- CTA Bottom Sekce -->
+      <section class="border-t border-[#262626] py-32 px-6 text-center bg-[#0F141C]">
+        <h2 class="text-4xl md:text-5xl font-serif font-medium tracking-tight uppercase text-white mb-8">
+          Chcete podobný web <br> pro svou firmu?
+        </h2>
+        <a href="/" class="inline-flex items-center gap-3 bg-[#F6F4EF] text-[#0F141C] px-6 py-3 rounded-full text-sm font-medium uppercase hover:bg-[#C8A86A] transition-colors">
+          Chci nový web <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+        </a>
+      </section>
+    </main>
+
+    <!-- FOOTER (Společný pro obě stránky) -->
+    <footer class="overflow-hidden bg-[#080808] pt-24 pb-8 relative border-t border-[#262626]" id="footer">
+      <div class="md:px-12 z-10 flex flex-col max-w-7xl mr-auto ml-auto pr-6 pl-6 relative items-center">
+        <h2 class="text-[10vw] leading-[0.8] font-medium tracking-tight text-white uppercase text-center mb-12 gs-fade-up">
+          PŘIPRAVENI
+          <br>
+          ZMĚNIT
+          <br>
+          <span class="text-transparent" style="-webkit-text-stroke: 1px rgb(200, 168, 106);">
+            PRVNÍ DOJEM?
+          </span>
+        </h2>
+
+        <div class="flex flex-col xl:flex-row w-full border-white/10 border-t pt-12 items-start justify-between gs-fade-up">
+          <div class="mb-12 xl:mb-0">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-14 h-14 rounded-full bg-[#1B1F27] border border-[#C8A86A]/40 flex items-center justify-center text-[#C8A86A] font-serif text-3xl leading-none tracking-tighter">
+                WNM
+              </div>
+              <div class="flex flex-col">
+                <span class="text-2xl font-serif font-medium leading-none tracking-wide text-[#F6F4EF]">
+                  WebNaMíru
+                </span>
+                <span class="text-xs font-sans font-light tracking-[0.2em] text-[#C8A86A] uppercase mt-1.5">
+                  Studio
+                </span>
+              </div>
+            </div>
+            <p class="text-sm font-sans font-light text-white/60 max-w-sm leading-relaxed">
+              WebNaMíru Studio — moderní weby pro firmy, které chtějí působit
+              profesionálně a získávat více poptávek.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-12 md:gap-24">
+            <div class="">
+              <h4 class="text-xs font-medium uppercase tracking-widest mb-6 text-white">
+                KONTAKT
+              </h4>
+              <a href="mailto:poptavky@webnamiru.online" class="text-sm font-light text-white/70 hover:text-[#C8A86A] transition-colors block mb-3">
+                poptavky@webnamiru.online
+              </a>
+              <a href="/" class="text-sm font-light text-white/70 hover:text-[#C8A86A] transition-colors block">
+                IČO: 24638161
+              </a>
+            </div>
+            <div class="">
+              <h4 class="text-xs font-medium uppercase tracking-widest mb-6 text-white">
+                WEBNAMÍRU
+              </h4>
+              <div class="flex gap-12">
+                <ul class="space-y-3">
+                  <li>
+                    <a href="/" class="text-sm font-light text-white/50 hover:text-white transition-colors">
+                      Služby
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/ukazky" class="text-sm font-light text-white/50 hover:text-white transition-colors">
+                      Ukázky
+                    </a>
+                  </li>
+                </ul>
+                <ul class="space-y-3">
+                  <li>
+                    <a href="/" class="text-sm font-light text-white/50 hover:text-white transition-colors">
+                      Kontakt
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/" class="text-sm font-light text-white/50 hover:text-white transition-colors">
+                      Domů
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gs-fade-up">
+          <div class="text-xs font-light text-white/40 uppercase tracking-widest text-center md:text-right w-full">
+            <p>Copyright © 2025 WebNaMíru Studio. Všechna práva vyhrazena.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Vanilla JS Router pro SPA funkčnost
+      document.addEventListener('DOMContentLoaded', () => {
+          const pageHome = document.getElementById('page-home');
+          const pageUkazky = document.getElementById('page-ukazky');
+
+          function switchPage(path) {
+              if(path === '/ukazky') {
+                  pageHome.style.display = 'none';
+                  pageUkazky.style.display = 'block';
+                  window.scrollTo(0,0);
+                  if(typeof ScrollTrigger !== 'undefined') setTimeout(() => ScrollTrigger.refresh(), 100);
+              } else {
+                  pageHome.style.display = 'block';
+                  pageUkazky.style.display = 'none';
+                  window.scrollTo(0,0);
+                  if(typeof ScrollTrigger !== 'undefined') setTimeout(() => ScrollTrigger.refresh(), 100);
+              }
+          }
+
+          // Odchytávání kliknutí na všechny odkazy v dokumentu
+          document.addEventListener('click', (e) => {
+              const link = e.target.closest('a');
+              if(!link) return;
+              
+              const href = link.getAttribute('href');
+              if (href === '/ukazky' || href === '/') {
+                  e.preventDefault();
+                  switchPage(href);
+                  // Aktualizace URL bez re-loadu stránky
+                  try { history.pushState({}, '', href); } catch(err) {}
+              }
+          });
+
+          // Reakce na tlačítko "Zpět" v prohlížeči
+          window.addEventListener('popstate', () => {
+              switchPage(window.location.pathname);
+          });
+
+          // Kontrola URL při prvním načtení stránky
+          if (window.location.pathname === '/ukazky') {
+              switchPage('/ukazky');
+          }
+      });
+
+      // Původní Lenis & GSAP Inicializace
+      if (typeof Lenis !== 'undefined') {
+          const lenis = new Lenis({
+              duration: 1.2,
+              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+              smooth: true,
+          });
+
+          if (typeof ScrollTrigger !== 'undefined') {
+              lenis.on('scroll', ScrollTrigger.update);
+          }
+
+          if (typeof gsap !== 'undefined') {
+              gsap.ticker.add((time)=>{
+                  lenis.raf(time * 1000);
+              });
+              gsap.ticker.lagSmoothing(0, 0);
+          } else {
+              function raf(time) {
+                  lenis.raf(time);
+                  requestAnimationFrame(raf);
+              }
+              requestAnimationFrame(raf);
+          }
+      }
+
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+          gsap.registerPlugin(ScrollTrigger);
+
+          const tl = gsap.timeline();
+          if(document.querySelector('.gs-nav')) {
+              tl.fromTo(".gs-nav", { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" });
+          }
+          if(document.querySelector('.gs-hero-text')) {
+              tl.fromTo(".gs-hero-text", { opacity: 0 }, { opacity: 1, duration: 1, ease: "power2.out" }, "-=0.5");
+          }
+          if(document.querySelector('.gs-title-line')) {
+              tl.fromTo(".gs-title-line", { y: "100%" }, { y: "0%", duration: 1, stagger: 0.15, ease: "power4.out" }, "-=0.8");
+          }
+          if(document.querySelector('.gs-hero-btn')) {
+              tl.fromTo(".gs-hero-btn", { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.5)" }, "-=0.5");
+          }
+          if(document.querySelector('.gs-hero-img')) {
+              tl.fromTo(".gs-hero-img", { y: "40%", opacity: 0, scale: 0.95 }, { y: "20%", opacity: 1, scale: 1, duration: 1.5, ease: "power3.out" }, "-=1");
+          }
+
+          if(document.querySelector('#hero-img-inner')) {
+              gsap.to("#hero-img-inner", {
+                  yPercent: 20,
+                  ease: "none",
+                  scrollTrigger: {
+                      trigger: "#hero",
+                      start: "top top",
+                      end: "bottom top",
+                      scrub: true
+                  }
+              });
+          }
+
+          document.querySelectorAll('.gs-bg-text').forEach(text => {
+              if (text.parentElement) {
+                  gsap.to(text, {
+                      y: -100,
+                      ease: "none",
+                      scrollTrigger: {
+                          trigger: text.parentElement,
+                          start: "top bottom",
+                          end: "bottom top",
+                          scrub: 1
+                      }
+                  });
+              }
+          });
+
+          document.querySelectorAll('.gs-fade-up').forEach(element => {
+              gsap.fromTo(element,
+                  { y: 50, opacity: 0 },
+                  {
+                      y: 0,
+                      opacity: 1,
+                      duration: 1,
+                      ease: "power3.out",
+                      scrollTrigger: {
+                          trigger: element,
+                          start: "top 85%",
+                          toggleActions: "play none none reverse"
+                      }
+                  }
+              );
+          });
+      }
+    </script>
+  
+</body></html>
